@@ -96,9 +96,12 @@ AGENTS.md                  所有 Agent 自动加载的通用规则（契约唯�
   test-runner.md           测试执行
   code-reviewer.md         独立审查
 demo/SPEC.md               接口契约与验收条件（唯一契约来源）
+demo/add.py                加法实现（第二轮由 implementer-add 产出）
+demo/multiply.py           乘法实现（第二轮由 implementer-multiply 产出）
 tests/__init__.py          让 `-t .` 形式的 discover / 按类运行可用
 tests/test_demo.py         37 条契约测试（18 加法 + 17 乘法 + 2 模块隔离；只读资产，禁止任何 Agent 修改）
 reports/setup-report.md    第一阶段的搭建与自检记录
+reports/phase2-run.md      第二阶段的运行证据与判定
 ```
 
 `demo/add.py`、`demo/multiply.py` 在第二轮由两个开发 Agent 分别创建，现已入库。
