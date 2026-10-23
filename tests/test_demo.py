@@ -12,9 +12,11 @@ from __future__ import annotations
 
 import ast
 import importlib
+import inspect
 import math
 import sys
 import unittest
+from decimal import Decimal
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +58,57 @@ class ContractAssertions:
         self.assertIsInstance(actual, float, f"期望 float，实际得到 {type(actual)!r}")
         self.assertAlmostEqual(actual, expected, places=12)
 
+    def assert_signature_contract(self):
+        """SPEC 1.1：参数名必须恰好是 a、b，且不得用 *args / **kwargs 或第 3 个必填参数改变接口."""
+        params = list(inspect.signature(self.func).parameters.values())
+        self.assertEqual(
+            [p.name for p in params],
+            ["a", "b"],
+            f"参数名必须恰好是 a、b（SPEC 1.1），实际为 {[p.name for p in params]}",
+        )
+        for param in params:
+            self.assertIs(
+                param.kind,
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                f"参数 {param.name} 必须同时支持位置调用与关键字调用，实际 kind={param.kind}",
+            )
+
+    def assert_documented(self):
+        """SPEC 1.4：必须带类型注解（参数 + 返回值）与 docstring."""
+        signature = inspect.signature(self.func)
+        for name in ("a", "b"):
+            self.assertIsNot(
+                signature.parameters[name].annotation,
+                inspect.Parameter.empty,
+                f"参数 {name} 缺少类型注解（SPEC 1.4）",
+            )
+        self.assertIsNot(
+            signature.return_annotation,
+            inspect.Signature.empty,
+            "缺少返回类型注解（SPEC 1.4）",
+        )
+        self.assertTrue(
+            (self.func.__doc__ or "").strip(),
+            "缺少 docstring（SPEC 1.4）",
+        )
+
+    def assert_rejects_decimal(self):
+        """SPEC 1.2：Decimal 属于「其他类型」，必须抛 TypeError，不做隐式数值转换."""
+        with self.assertRaises(TypeError):
+            self.func(Decimal("1.5"), 1)
+        with self.assertRaises(TypeError):
+            self.func(1, Decimal("1.5"))
+
+    def assert_positive_float_zero(self, result, label: str):
+        """SPEC 1.3：浮点零必须是 float 且必须是正零."""
+        self.assertIsInstance(
+            result, float, f"{label} 的浮点零必须是 float，实际为 {type(result)!r}"
+        )
+        self.assertEqual(result, 0.0)
+        self.assertGreater(
+            math.copysign(1.0, result), 0.0, f"{label} 不得返回负零 -0.0"
+        )
+
 
 class AddContractTest(ContractAssertions, unittest.TestCase):
     """demo/add.py::add(a, b) 的契约测试."""
@@ -82,6 +135,12 @@ class AddContractTest(ContractAssertions, unittest.TestCase):
         # 标准 IEEE-754 双精度结果，SPEC 要求不做额外舍入
         self.assert_float_result(self.func(0.1, 0.2), 0.30000000000000004)
 
+    def test_float_result_is_not_rounded(self):
+        # SPEC 1.3「不做额外舍入」：必须逐位等于 IEEE-754 原始结果。
+        # 用 assertAlmostEqual 会让「round(x, 12) 成 0.3」的实现蒙混过关，所以这里用精确相等。
+        self.assertEqual(self.func(0.1, 0.2), 0.30000000000000004)
+        self.assertEqual(self.func(0.1, 0.7), 0.7999999999999999)
+
     def test_mixed_int_and_float_returns_float(self):
         self.assert_float_result(self.func(1, 2.5), 3.5)
         self.assert_float_result(self.func(2.5, 1), 3.5)
@@ -94,9 +153,14 @@ class AddContractTest(ContractAssertions, unittest.TestCase):
         self.assertEqual(self.func(a=2, b=5), 7)
 
     def test_float_zero_is_normalized_to_positive_zero(self):
-        result = self.func(-0.0, -0.0)
-        self.assertEqual(result, 0.0)
-        self.assertFalse(math.copysign(1.0, result) < 0, "浮点零结果不得为负零")
+        self.assert_positive_float_zero(self.func(-0.0, -0.0), "add(-0.0, -0.0)")
+        self.assert_positive_float_zero(self.func(-0.0, 0.0), "add(-0.0, 0.0)")
+        self.assert_positive_float_zero(self.func(0.0, -0.0), "add(0.0, -0.0)")
+
+    def test_int_zero_stays_int(self):
+        # 全整数路径不能因为负零归一化被误改成 float
+        self.assert_int_result(self.func(0, 0), 0)
+        self.assert_int_result(self.func(-3, 3), 0)
 
     def test_rejects_bool_operands(self):
         with self.assertRaises(TypeError):
@@ -125,9 +189,23 @@ class AddContractTest(ContractAssertions, unittest.TestCase):
             self.func(1, float("-inf"))
 
     def test_type_error_takes_precedence_over_value_error(self):
-        # SPEC 1.2：先类型校验，后有限性校验
+        # SPEC 1.2：先类型校验，后有限性校验；与参数顺序无关
         with self.assertRaises(TypeError):
             self.func("1", float("inf"))
+        with self.assertRaises(TypeError):
+            self.func(float("inf"), "1")
+
+    def test_signature_matches_contract(self):
+        # SPEC 1.1：def add(a, b, c) 或 def add(*args) 都必须被判失败
+        self.assert_signature_contract()
+
+    def test_is_annotated_and_documented(self):
+        # SPEC 1.4
+        self.assert_documented()
+
+    def test_rejects_decimal_operands(self):
+        # SPEC 1.2 明确把 Decimal 列为非法输入
+        self.assert_rejects_decimal()
 
 
 class MultiplyContractTest(ContractAssertions, unittest.TestCase):
@@ -155,6 +233,11 @@ class MultiplyContractTest(ContractAssertions, unittest.TestCase):
     def test_handles_float_operands(self):
         self.assert_float_result(self.func(0.5, 4), 2.0)
         self.assert_float_result(self.func(-0.5, 4), -2.0)
+
+    def test_float_result_is_not_rounded(self):
+        # SPEC 1.3「不做额外舍入」：必须逐位等于 IEEE-754 原始结果。
+        self.assertEqual(self.func(0.1, 3), 0.30000000000000004)
+        self.assertEqual(self.func(0.1, 0.2), 0.020000000000000004)
 
     def test_mixed_int_and_float_returns_float(self):
         self.assert_float_result(self.func(2, 2.5), 5.0)
@@ -194,9 +277,32 @@ class MultiplyContractTest(ContractAssertions, unittest.TestCase):
             self.func(float("inf"), 2)
 
     def test_float_zero_is_normalized_to_positive_zero(self):
-        result = self.func(-0.0, 0.0)
-        self.assertEqual(result, 0.0)
-        self.assertFalse(math.copysign(1.0, result) < 0, "浮点零结果不得为负零")
+        self.assert_positive_float_zero(self.func(-0.0, 0.0), "multiply(-0.0, 0.0)")
+        self.assert_positive_float_zero(self.func(-0.0, -0.0), "multiply(-0.0, -0.0)")
+        # 混合路径：0 是 int，但任一操作数为 float，结果仍是 float 的 -0.0
+        self.assert_positive_float_zero(self.func(-1.0, 0), "multiply(-1.0, 0)")
+
+    def test_type_error_takes_precedence_over_value_error(self):
+        # SPEC 1.2：先类型校验，后有限性校验；与参数顺序无关。
+        # 上一轮 multiply 的校验顺序偏差正是因为没有这条测试才被漏过。
+        with self.assertRaises(TypeError):
+            self.func("2", float("inf"))
+        with self.assertRaises(TypeError):
+            self.func(float("nan"), "x")
+        with self.assertRaises(TypeError):
+            self.func("x", float("nan"))
+
+    def test_signature_matches_contract(self):
+        # SPEC 1.1：def multiply(a, b, c) 或 def multiply(*args) 都必须被判失败
+        self.assert_signature_contract()
+
+    def test_is_annotated_and_documented(self):
+        # SPEC 1.4
+        self.assert_documented()
+
+    def test_rejects_decimal_operands(self):
+        # SPEC 1.2 明确把 Decimal 列为非法输入
+        self.assert_rejects_decimal()
 
 
 def imported_modules(module) -> set[str]:

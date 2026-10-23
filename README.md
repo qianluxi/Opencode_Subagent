@@ -97,12 +97,17 @@ AGENTS.md                  所有 Agent 自动加载的通用规则（契约唯�
   code-reviewer.md         独立审查
 demo/SPEC.md               接口契约与验收条件（唯一契约来源）
 tests/__init__.py          让 `-t .` 形式的 discover / 按类运行可用
-tests/test_demo.py         27 条契约测试（只读资产，禁止任何 Agent 修改）
+tests/test_demo.py         37 条契约测试（18 加法 + 17 乘法 + 2 模块隔离；只读资产，禁止任何 Agent 修改）
 reports/setup-report.md    第一阶段的搭建与自检记录
 ```
 
-`demo/add.py`、`demo/multiply.py` **故意不存在**——它们必须由第二轮的开发 Agent 创建，
-否则就失去了验证多 Agent 开发能力的意义。
+`demo/add.py`、`demo/multiply.py` 在第二轮由两个开发 Agent 分别创建，现已入库。
+若要在客户端里重新验证「从零实现」的原生流程，删掉这两个文件即可回到未实现基线：
+
+```bash
+rm demo/add.py demo/multiply.py        # 或 git rm demo/add.py demo/multiply.py
+python -m unittest discover -s tests -t .   # 会变成 2 failures + 2 errors（预期）
+```
 
 ## 5. 在第一轮如何加载主控 Agent
 
@@ -146,7 +151,7 @@ T6 汇总真实证据，给出 PASS / FAIL，并写入 reports/phase2-run.md。
 | 想看什么 | 在哪看 |
 | --- | --- |
 | 子会话（每个 task 一个） | 客户端会话列表里的子会话/子任务；`task` 返回内容中也会带可复用的 `task_id` |
-| 文件是否真被创建 | `demo/add.py`、`demo/multiply.py` 是否出现；或让主控贴 `git status`（本目录尚未 `git init`，也可用 `ls demo`） |
+| 文件是否真被创建 | `demo/add.py`、`demo/multiply.py` 是否出现；或让主控贴 `git status --short` / `ls demo` |
 | 测试真实结果 | 终端里自己跑一遍 `python -m unittest discover -s tests -t . -v`，与 test-runner 的 `Ran N tests` / `OK` 对照 |
 | 审查结论 | code-reviewer 的返回原文（应包含 `## 结论: PASS / PASS_WITH_NOTES / FAIL` 与阻断问题清单） |
 | 本轮汇总 | `reports/phase2-run.md`（主控唯一有写权限的路径） |
@@ -159,7 +164,7 @@ python -m unittest discover -s tests -t . -v
 
 - 当前（未实现）基线：`Ran 2 tests … FAILED (failures=2, errors=2)`，退出码 1。
   两个 `setUpClass ... ERROR` 表示 `demo.add` / `demo.multiply` 尚不存在，这是**预期**状态。
-- 全部通过时应显示 `Ran 27 tests … OK`，退出码 0。
+- 全部通过时应显示 `Ran 37 tests … OK`，退出码 0。
 
 按类单独运行（开发 Agent 的自检方式）：
 
@@ -178,3 +183,18 @@ python -m unittest discover -s tests -t . -k MultiplyContractTest -v
    本项目不启用（避免修改用户环境变量）。未启用时传 `background` 会直接报错。
 4. **热重载未验证**：改 Agent 定义后按「重启客户端」处理。
 5. 桌面客户端的 Agent 选择器 / `Tab` 切换的具体交互，未在本轮逐一截图验证。
+
+## 9. 当前状态
+
+| 项 | 状态 |
+| --- | --- |
+| 第一阶段（搭建） | 完成，见 `reports/setup-report.md` |
+| 第二阶段（运行） | 完成，判定 PASS，见 `reports/phase2-run.md` |
+| 测试规模 | 37 条，全部通过 |
+| 执行载体 | 第二轮由 WorkBuddy 主控 + 并行 subagent 执行，**不是** OpenCode 原生 `task`，故原生编排能力仍未验证（详见 `phase2-run.md` 第 0 节） |
+| 远端仓库 | https://github.com/qianluxi/Opencode_Subagent （`main`） |
+
+测试有效性（不只跑绿，还验证会红）：37 条测试对 7 种典型变异全部报红，包括
+「去掉类型注解」「去掉 docstring」「改成 `*args` 签名」「隐式接受 `Decimal`」
+「浮点结果四舍五入」「multiply 改回逐参数交错校验」「浮点零返回 `int 0`」。
+
