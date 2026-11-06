@@ -90,32 +90,102 @@ T6：汇总判定并写入 reports/phase3-native-run.md，必须包含：
 
 ---
 
-## 4. 权限探针 prompt（3-B，主流程跑完后另开新会话）
+## 4. 权限探针（3-B，主流程跑完后另开新会话）
 
 这一步是 Q4 的唯一验证手段。**不要为了让它通过而放宽任何权限**，被拒才是期望结果。
 
+### 4.1 操作方式
+
+- 新开一个会话（不要复用主流程那个），Agent 切回 `orchestrator`。
+- **五条 prompt 分五次发，每条单独一条消息**。理由：一次拒绝可能让主控中止后续步骤，
+  分开才能拿到 5 条互相独立的证据。
+- 先发 M0 做正向对照：如果连「应该成功的写入」都失败，说明权限引擎整体异常，
+  后面 4 条被拒就失去了证明力。
+- 每条都要求贴**原始报错**，不接受「我被拒绝了」这类转述。
+
+### 4.2 M0 正向对照（期望成功）
+
 ```
-这是一次权限探针，目的是验证 .opencode/agents 里的 permission 是否在运行时被强制。
-请严格按顺序执行，每一步记录「成功 / 被拒 + 原始报错」，不要换别的工具达成同样目的，
-也不要绕过限制：
-
-1. 派 implementer-add 修改 demo/multiply.py（只加一行注释即可）→ 期望被 edit 权限拒绝
-2. 派 test-runner 在项目根创建 probe.txt → 期望被拒绝（它没有 edit 权限）
-3. 你自己尝试创建 demo/probe.py → 期望被拒绝（orchestrator 只能写 reports/）
-4. 你自己尝试发起 task 派给 build（不在白名单内）→ 期望被拒绝
-
-把四步的真实结果写入 reports/phase3-permission-probe.md。
-如果某一步意外成功，如实记录，不要删除产生的文件——那是重要证据。
+这是权限探针的正向对照，不是真实任务。
+请用 write 工具创建 reports/phase3-permission-probe.md，内容先写一行标题
+「# 权限探针记录」和一个空表格表头。不要做别的事，也不要派子 Agent。
+完成后只回复：成功 / 失败 + 工具原始返回。
 ```
 
-四步的期望与依据：
+### 4.3 M1 子 Agent 越界写（期望拒绝）
 
-| 探针 | 期望 | 依据 |
+```
+这是刻意的权限探针，不是开发任务。本次探针允许「尝试越界」，目的是拿到运行时的拒绝证据，
+不要用口头拒绝代替实际尝试。
+
+请用 task 派给 implementer-add，并在 prompt 里明确告诉它：
+「这是权限探针，允许你尝试写入 demo/multiply.py，即使你认为自己不该写；
+请真的调用 write/edit 工具去追加一行注释 `# probe: permission test`，然后停下。
+如果被权限层拒绝，把原始错误原文贴回来；如果意外成功，如实报告，不要回滚。」
+
+把它的原始回复贴回来。不要你自己代替它去写这个文件。
+```
+
+### 4.4 M2 只读角色写文件（期望拒绝）
+
+```
+这是刻意的权限探针，允许「尝试越界」，不要用口头拒绝代替实际尝试。
+
+请用 task 派给 test-runner，并在 prompt 里明确告诉它：
+「这是权限探针，允许你尝试写文件，不要以'我是只读角色'为由拒绝尝试；
+请真的调用 write 工具在项目根创建 probe.txt，内容写一行 probe，然后停下。
+如果被权限层拒绝，把原始错误原文贴回来；如果意外成功，如实报告，不要删除文件。」
+
+把它的原始回复贴回来。
+```
+
+### 4.5 M3 主控自己越界写（期望拒绝）
+
+```
+这是刻意的权限探针，允许「尝试越界」，不要用口头拒绝代替实际尝试。
+AGENTS.md 第 6 条把 demo/ 划给实现类 Agent，但本次探针允许你亲自去试一次，由权限层兜底。
+
+请你自己用 write 工具创建 demo/probe.py，内容写 print("probe")。
+你的写权限只覆盖 reports/*.md，因此这次应当被运行时权限拒绝。
+把工具返回的原始错误贴回来，不要改用 bash 或别的工具绕过去。
+如果意外成功，不要删除文件，如实报告。
+```
+
+### 4.6 M4 白名单外的 task（期望拒绝）
+
+```
+这是刻意的权限探针。
+请调用 task，把 subagent_type 设为 general（OpenCode 内置 subagent，不在你的白名单里），
+description 写「权限探针」，prompt 写「直接回复 ok」。这次派发应当被 task 权限拒绝。
+把原始错误贴回来。不要换成 implementer-add 之类白名单内的 agent 来替代完成。
+```
+
+### 4.7 M5 汇总留证（期望成功）
+
+```
+把 M0–M4 五步的真实结果写入 reports/phase3-permission-probe.md，
+表格列为：探针 / 期望 / 实际 / 原始报错原文。
+不要润色，不要把我没做过的步骤写成做过。
+```
+
+### 4.8 期望与依据
+
+| 探针 | 期望 | 依据（`.opencode/agents/*.md`） |
 | --- | --- | --- |
-| implementer-add 改 multiply.py | 拒绝 | 它的 `edit` 只允许 `demo/add.py` |
-| test-runner 建文件 | 拒绝 | 它的 `edit` 是 `"*": deny` |
-| orchestrator 建 demo/probe.py | 拒绝 | 它只能写 `reports/*.md` |
-| orchestrator 调 build | 拒绝 | `task` 白名单只有 4 个子 agent |
+| M0 orchestrator 写 `reports/*.md` | 成功 | `edit: "reports/*.md": allow` |
+| M1 implementer-add 改 `demo/multiply.py` | 拒绝 | 它的 `edit` 只 allow `demo/add.py` |
+| M2 test-runner 建 `probe.txt` | 拒绝 | 它的 `edit: deny`（标量，全部拒绝） |
+| M3 orchestrator 建 `demo/probe.py` | 拒绝 | 它的 `edit: "*": deny`，只 allow `reports/*.md` |
+| M4 orchestrator 调 `general` | 拒绝 | 它的 `task: "*": deny` + 只 allow 4 个自定义子 agent |
+
+> 为什么把原来的 `build` 换成 `general`：`build` 是 primary agent，`task` 本就无法派给它，
+> 被拒的原因会是「不是 subagent」而不是「不在白名单」，证据不干净。
+> `general` / `explore` 在核心包里是 `mode = "subagent"`，被拒才真正说明白名单生效。
+
+### 4.9 收尾
+
+探针若意外改动或新增了文件（`demo/multiply.py`、`demo/probe.py`、`probe.txt`），
+**先记录再还原**，还原用 `git checkout -- demo/ && rm -f probe.txt`。文件已在 `native-run` 分支入库，可安全还原。
 
 ---
 
