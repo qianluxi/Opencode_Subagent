@@ -1,7 +1,6 @@
-"""乘法模块（演示用）。
+"""乘法模块 —— 契约见 ``demo/SPEC.md`` 第 1 节与第 3 节。
 
-契约来源：``demo/SPEC.md`` 第 1 节「通用接口约定」与第 3 节「multiply 契约」。
-本模块只依赖标准库，且不 import 加法模块。
+只依赖 Python 标准库，导入时无任何副作用，也不依赖项目内其它模块。
 """
 
 from __future__ import annotations
@@ -9,51 +8,49 @@ from __future__ import annotations
 import math
 
 
-def _check_type(value: object, name: str) -> None:
-    """第一阶段：类型校验，非法则抛 ``TypeError``（``bool`` 显式拒绝）。"""
-    if isinstance(value, bool):  # bool 是 int 的子类，必须先排除
-        raise TypeError(f"参数 {name} 不能是 bool")
-    if not isinstance(value, (int, float)):
-        raise TypeError(
-            f"参数 {name} 必须是 int 或 float，实际类型为 {type(value).__name__}"
-        )
-
-
-def _check_finite(value: object, name: str) -> None:
-    """第二阶段：有限性校验，``nan``/``inf`` 抛 ``ValueError``（``int`` 永远有限）。"""
-    if isinstance(value, float) and not math.isfinite(value):
-        raise ValueError(f"参数 {name} 必须是有限数值，实际为 {value!r}")
-
-
 def multiply(a: int | float, b: int | float) -> int | float:
-    """返回两个数的乘积。
+    """返回两个数值的乘积。
 
     参数:
-        a: 被乘数，必须是 ``int`` 或 ``float``（``bool`` 非法）。
-        b: 乘数，必须是 ``int`` 或 ``float``（``bool`` 非法）。
+        a: 第一个操作数，必须是 ``int`` 或 ``float``；``bool`` 视为非法输入。
+        b: 第二个操作数，必须是 ``int`` 或 ``float``；``bool`` 视为非法输入。
 
     返回:
-        - 当 ``a`` 与 ``b`` 都是 ``int`` 时返回 ``int``，任意精度、不做 float 转换；
-        - 否则返回 ``float``；若浮点结果为 ``0.0``，统一归一化为正零 ``0.0``。
+        - 当 ``a`` 与 ``b`` 都是 ``int`` 时，返回精确的 ``int``（任意精度，不转 float）；
+        - 否则返回 ``float``（IEEE-754 双精度原始结果，不做任何额外舍入）。
+        - 若浮点结果为 0，统一归一化为正零 ``0.0``（不会返回 ``-0.0``）。
 
     异常:
-        TypeError: ``a`` 或 ``b`` 不是 ``int``/``float``（含 ``bool``、``str``、
-            ``None``、``list``、``dict``、``complex``、``Decimal`` 等）。
-            类型校验优先于有限性校验。
-        ValueError: 类型合法但取值为 ``nan``、``inf`` 或 ``-inf``。
+        TypeError: 任一操作数不是 ``int``/``float``（包括 ``bool``、``str``、``None``、
+            ``list``、``dict``、``complex``、``Decimal`` 等）。类型校验优先于有限性校验。
+        ValueError: 类型均合法，但任一操作数为 ``NaN``、``+inf`` 或 ``-inf``。
     """
-    # 两阶段校验：先把两个操作数的类型都校验完，再做有限性校验
-    _check_type(a, "a")
-    _check_type(b, "b")
-    _check_finite(a, "a")
-    _check_finite(b, "b")
+    # 1) 类型校验（先于有限性校验）：显式排除 bool，因为 bool 是 int 的子类。
+    if isinstance(a, bool) or not isinstance(a, (int, float)):
+        raise TypeError(
+            "multiply() 的参数 a 必须是 int 或 float（bool 非法），"
+            f"实际类型为 {type(a).__name__}"
+        )
+    if isinstance(b, bool) or not isinstance(b, (int, float)):
+        raise TypeError(
+            "multiply() 的参数 b 必须是 int 或 float（bool 非法），"
+            f"实际类型为 {type(b).__name__}"
+        )
 
-    # 两个都是 int：整数乘法，天然精确，绝不经过 float
-    if isinstance(a, int) and isinstance(b, int):
-        return a * b
+    # 2) 有限性校验：只有 float 可能非有限，int 永远有限。
+    if isinstance(a, float) and not math.isfinite(a):
+        raise ValueError(f"multiply() 的参数 a 必须是有限数值，实际为 {a!r}")
+    if isinstance(b, float) and not math.isfinite(b):
+        raise ValueError(f"multiply() 的参数 b 必须是有限数值，实际为 {b!r}")
 
-    # 任一为 float：走 IEEE-754 双精度，不做额外舍入
     result = a * b
-    if result == 0.0:  # 命中 +0.0 / -0.0，统一归一化为正零
+
+    # 全整数路径：保持 int（含 0，绝不变成 -0.0）。
+    if isinstance(a, int) and isinstance(b, int):
+        return result
+
+    # 浮点路径：保持 IEEE-754 原始结果，仅把浮点负零归一化成正零。
+    result = float(result)
+    if result == 0.0:
         return 0.0
     return result
