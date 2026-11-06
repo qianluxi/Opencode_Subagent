@@ -193,9 +193,10 @@ python -m unittest discover -s tests -t . -k MultiplyContractTest -v
 | --- | --- |
 | 第一阶段（搭建） | 完成，见 `reports/setup-report.md` |
 | 第二阶段（运行） | 完成，判定 PASS，见 `reports/phase2-run.md` |
+| 第三阶段（原生编排） | 完成，Q1–Q6 全部通过，见 `reports/phase3-native-run.md` + `phase3-verification.md` + `phase3-permission-probe-verification.md` |
 | 测试规模 | 37 条，全部通过 |
-| 执行载体 | 第二轮由 WorkBuddy 主控 + 并行 subagent 执行，**不是** OpenCode 原生 `task`，故原生编排能力仍未验证（详见 `phase2-run.md` 第 0 节） |
-| 远端仓库 | https://github.com/qianluxi/Opencode_Subagent （`main`） |
+| 执行载体 | 第二轮由 WorkBuddy 主控 + 并行 subagent 执行（**不是** OpenCode 原生 `task`）；第三轮已切换到 OpenCode 桌面客户端原生 `task`，4 次派发、2 个开发真实并行（重叠 49.6s） |
+| 远端仓库 | https://github.com/qianluxi/Opencode_Subagent （`main`；第三阶段在 `native-run` 分支） |
 
 测试有效性（不只跑绿，还验证会红）：37 条测试对 7 种典型变异全部报红，包括
 「去掉类型注解」「去掉 docstring」「改成 `*args` 签名」「隐式接受 `Decimal`」

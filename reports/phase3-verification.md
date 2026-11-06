@@ -27,7 +27,7 @@
 | Q1 | 5 个 agent 是否被加载 | ✅ 通过 | 根会话 `session.agent = orchestrator`；4 个子会话 agent 分别为 `implementer-add` / `implementer-multiply` / `test-runner` / `code-reviewer`，与配置文件一一对应 |
 | Q2 | `task` 是否被原生调用 | ✅ 通过 | 库中 4 条 `tool == "task"`，`subagent_type` 全部正确，状态均 `completed`；全库此前为 0，本轮首次出现 |
 | Q3 | 两个开发是否真并行 | ✅ 通过 | 两条 task 属于**同一条消息** `msg_1aff2eb76001Z6Z1oYtT3no5t9`；执行区间重叠 **49.60s**（16:23:01.215–16:23:50.815 完全落在 add 的 16:22:47.358–16:28:08.824 之内） |
-| Q4 | 权限是否运行时强制 | ⚠️ 部分通过 | 5 次工具调用被引擎拦截（原文 `The user has specified a rule which prevents you from using this specific tool call`）；3 次 `write` 落点全部合法。但 `edit` 越界与 `task` 白名单外调用未被尝试，**不能判定** |
+| Q4 | 权限是否运行时强制 | ✅ 通过（3-B 探针已闭环） | 主流程：5 次工具调用被引擎拦截。3-B 探针：M1 `implementer-add` 越界 `edit demo/multiply.py` 被拒、M3 主控 `write demo/probe.py` 被拒、M4 `task → general` 1ms 内被拒且不产生子会话，三条错误原文入库且与自述逐字一致；M0/M5 两次合法写入成功（正向对照）。详见 `phase3-permission-probe-verification.md` |
 | Q5 | 子会话可追溯 | ✅ 通过 | 4 个子会话 `parent_id` 均指向根会话，id 与主控报告列出的 task_id 完全一致 |
 | Q6 | 测试闭环 | ✅ 通过 | 本地实跑 `Ran 37 tests … OK`，退出码 0；`git diff` 为空 → `tests/`、`SPEC.md`、配置均未被改 |
 
@@ -154,6 +154,7 @@ orchestrator         → reports/phase3-native-run.md  completed
 
 ## 8. 剩下要做的
 
-1. **跑 3-B 权限探针**（runbook 第 4 节，约 4 个动作）——这是 Q4 唯一的闭环方式；
-2. 3-B 完成后，把 `native-run` 合并回 `main`（主控报告 + 本核对报告一起入库）；
-3. 可选：按 6.1 给 reviewer 加只读校验脚本白名单，然后重跑一次审查，看结论是否变化。
+1. ~~跑 3-B 权限探针~~ —— 已于 17:19–17:27 完成，Q4 闭环，见 `phase3-permission-probe-verification.md`；
+2. 把 `native-run` 合并回 `main`（主控报告 + 两份核对报告一起入库）；
+3. 可选 1：补 M2'（test-runner 走 `bash` 写文件）——目前 `bash` 写路径未单独探，见探针核对报告第 5 节；
+4. 可选 2：按 6.1 给 reviewer 加只读校验脚本白名单，然后重跑一次审查，看结论是否变化。
