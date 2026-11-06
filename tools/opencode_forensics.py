@@ -198,7 +198,8 @@ def extract_task(part: dict) -> dict | None:
     output = state.get("output")
 
     blob = json.dumps(metadata, ensure_ascii=False) + " " + str(output or "")
-    child_ids = SESSION_ID_RE.findall(blob)
+    # 兜底：正则命中的 id 里排除父会话自身（metadata 常把父会话 id 也带上）
+    child_ids = [sid for sid in SESSION_ID_RE.findall(blob) if sid != part["session_id"]]
 
     return {
         "part_id": part["id"],
@@ -212,6 +213,26 @@ def extract_task(part: dict) -> dict | None:
         "child_session": child_ids[0] if child_ids else None,
         "metadata_keys": sorted(metadata.keys()) if isinstance(metadata, dict) else [],
     }
+
+
+def resolve_child_session(task: dict, sessions: list[dict]) -> str | None:
+    """按「父会话 + agent 名 + 时间邻近」把 task 调用对到真实子会话。
+
+    比在 metadata 里正则找 id 可靠：不同版本 metadata 结构不一致，
+    而 session 表的 (parent_id, agent, time_created) 是稳定的。
+    """
+    candidates = [
+        s for s in sessions
+        if s["parent_id"] == task["session_id"] and s["agent"] == task["subagent"]
+    ]
+    if not candidates:
+        return task.get("child_session")
+    if len(candidates) == 1:
+        return candidates[0]["id"]
+
+    start = task.get("start") or 0
+    return min(candidates, key=lambda s: abs((s["created"] or 0) - start))["id"]
+
 
 
 def overlap_ms(first: dict, second: dict) -> int:
@@ -250,6 +271,49 @@ def analyse(data: dict, project_dir: str, since: int | None) -> dict:
 
     tasks = [t for t in (extract_task(p) for p in parts) if t]
     tasks.sort(key=lambda t: (t["start"] or 0))
+    for task in tasks:
+        task["child_session"] = resolve_child_session(task, sessions)
+
+    # 同一条消息里承载了几次 task 调用 —— 这是「原生并发派发」的结构性证据
+    task_groups: dict[str, list[str]] = {}
+    for task in tasks:
+        task_groups.setdefault(task["message_id"], []).append(task["subagent"])
+
+    agent_of = {s["id"]: s["agent"] for s in sessions}
+    writes = []
+    for part in parts:
+        payload = part["data"]
+        if payload.get("type") == "tool" and payload.get("tool") in ("write", "edit", "patch"):
+            state = payload.get("state") or {}
+            writes.append({
+                "agent": agent_of.get(part["session_id"], "?"),
+                "tool": payload.get("tool"),
+                "path": (state.get("input") or {}).get("filePath")
+                        or (state.get("input") or {}).get("path") or "?",
+                "status": state.get("status"),
+                "start": (state.get("time") or {}).get("start") or part["created"],
+            })
+    writes.sort(key=lambda w: w["start"] or 0)
+
+    # 被权限引擎挡下的调用：state.status=error 且 error 里带规则提示
+    denials = []
+    for part in parts:
+        payload = part["data"]
+        if payload.get("type") != "tool":
+            continue
+        state = payload.get("state") or {}
+        error = str(state.get("error") or "")
+        if state.get("status") == "error" and (
+            "prevents you from using" in error or "permission" in error.lower()
+        ):
+            inputs = state.get("input") or {}
+            denials.append({
+                "agent": agent_of.get(part["session_id"], "?"),
+                "tool": payload.get("tool"),
+                "start": (state.get("time") or {}).get("start") or part["created"],
+                "target": inputs.get("command") or inputs.get("filePath") or "?",
+            })
+    denials.sort(key=lambda d: d["start"] or 0)
 
     pairs = []
     for index, first in enumerate(tasks):
@@ -283,6 +347,9 @@ def analyse(data: dict, project_dir: str, since: int | None) -> dict:
         "messages": messages,
         "parts_count": len(parts),
         "tasks": tasks,
+        "task_groups": task_groups,
+        "writes": writes,
+        "denials": denials,
         "pairs": pairs,
         "by_agent": by_agent,
         "part_types": data["part_types"],
@@ -352,6 +419,15 @@ def render(report: dict) -> str:
             if task["description"]:
                 add(f"     描述: {task['description'][:60]}")
 
+        shared = {mid: subs for mid, subs in report["task_groups"].items() if len(subs) > 1}
+        add(f"  分布在 {len(report['task_groups'])} 条消息中")
+        for mid, subs in report["task_groups"].items():
+            if len(subs) > 1:
+                add(f"  [OK] 同一条消息内并列 {len(subs)} 个 task 调用: {', '.join(subs)}"
+                    f"  (message {mid})")
+        if not shared:
+            add("  [NO] 没有任何一条消息包含 2 个及以上 task 调用 → 不是原生的并发写法")
+
     add("\n[5] 并行性判定（同一父会话内的 task 区间重叠）")
     if len(report["tasks"]) < 2:
         add("  [N/A] 少于 2 次 task 调用，无法判定")
@@ -369,18 +445,33 @@ def render(report: dict) -> str:
             add("  [NO] 所有 task 区间互不重叠 → 属于串行执行，不能宣称并行")
 
     add("\n[6] 权限证据")
+    if report["writes"]:
+        add(f"  写操作落点（write/edit/patch，共 {len(report['writes'])} 次）:")
+        for write in report["writes"]:
+            add(f"  - {fmt_ms(write['start'])}  {write['agent']:<22} {write['tool']:<6}"
+                f"{write['status']:<10} {write['path']}")
+    else:
+        add("  写操作: 无记录")
     if report["permission_rows"]:
         add(f"  permission 表: {len(report['permission_rows'])} 条")
         for row in report["permission_rows"][:20]:
             add(f"  - {fmt_ms(row['created'])}  action={row['action']}  resource={row['resource']}")
     else:
         add("  permission 表: 无记录")
+    if report["denials"]:
+        add(f"  被权限引擎拒绝的工具调用: {len(report['denials'])} 次")
+        for denial in report["denials"]:
+            add(f"  - {fmt_ms(denial['start'])}  {denial['agent']:<22} {denial['tool']:<6}"
+                f"{str(denial['target'])[:70]}")
+        add("  [OK] 以上为运行时拦截，证明对应权限规则真的生效（不是只写在配置里）")
+    else:
+        add("  被权限引擎拒绝的工具调用: 无")
     if report["permission_events"]:
         add(f"  event 表中的权限相关类型: {report['permission_events']}")
     else:
         add("  event 表: 无权限相关事件")
-    add("  说明：权限被「拒绝」不一定落库（多数情况下只在 UI 里提示）。")
-    add("        要证明规则生效，必须做主动探针（见 reports/phase3-runbook.md 第 5 节）。")
+    add("  说明：只统计「真的发起过并被拦」的调用；没有触碰的规则依然无法判定，")
+    add("        需按 reports/phase3-runbook.md 第 4 节做主动探针。")
 
     add("\n[7] 数据健康度")
     add(f"  本项目会话：消息 {len(report['messages'])} 条 / part {report['parts_count']} 条，"
