@@ -380,6 +380,14 @@ def render(report: dict) -> str:
     if report["matched_projects"]:
         for project in report["matched_projects"]:
             add(f"  - project id={project['id']}  worktree={project['worktree']}")
+    elif report["sessions"]:
+        # project 表按 worktree 匹配不到，但会话确实存在：这类会话的 project_id 是 "global"，
+        # 路径只落在 session.directory 上。只按 project 表判定会误报「从未打开过」。
+        dirs = sorted({s["directory"] for s in report["sessions"] if s.get("directory")})
+        pids = sorted({s["project_id"] for s in report["sessions"] if s.get("project_id")})
+        add("  [PARTIAL] project 表无该 worktree，但按 session.directory 匹配到会话")
+        add(f"       → project_id={pids}，directory={dirs[:3]}")
+        add("       → 会话确实跑过；只是该目录未登记为独立 project（挂在 global 下）")
     else:
         add("  [NO] 库中没有该路径的 project 记录")
         add("       → 该目录从未在 OpenCode 客户端里打开过，或打开后没有产生任何会话")
