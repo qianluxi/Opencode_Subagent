@@ -201,6 +201,18 @@ def extract_task(part: dict) -> dict | None:
     # 兜底：正则命中的 id 里排除父会话自身（metadata 常把父会话 id 也带上）
     child_ids = [sid for sid in SESSION_ID_RE.findall(blob) if sid != part["session_id"]]
 
+    # 权威来源优先：task 的 output 形如 <task id="ses_..." state="completed">，
+    # 续派（带 task_id 复用同一子会话）时只有它能指回原来的会话——
+    # 按「创建时间最近」匹配会把续派错配到另一个同角色会话（差 1 秒就选错）。
+    hinted = None
+    match = re.search(r'<task\s+id="(ses_[A-Za-z0-9]+)"', str(output or ""))
+    if match and match.group(1) != part["session_id"]:
+        hinted = match.group(1)
+    if hinted is None:
+        meta_sid = metadata.get("sessionId") or metadata.get("session_id")
+        if isinstance(meta_sid, str) and meta_sid != part["session_id"]:
+            hinted = meta_sid
+
     return {
         "part_id": part["id"],
         "session_id": part["session_id"],
@@ -210,7 +222,7 @@ def extract_task(part: dict) -> dict | None:
         "status": state.get("status"),
         "start": times.get("start") or part["created"],
         "end": times.get("end"),
-        "child_session": child_ids[0] if child_ids else None,
+        "child_session": hinted or (child_ids[0] if child_ids else None),
         "metadata_keys": sorted(metadata.keys()) if isinstance(metadata, dict) else [],
     }
 
@@ -225,8 +237,14 @@ def resolve_child_session(task: dict, sessions: list[dict]) -> str | None:
         s for s in sessions
         if s["parent_id"] == task["session_id"] and s["agent"] == task["subagent"]
     ]
+    hinted = task.get("child_session")
+    known = {s["id"] for s in sessions}
+    # 有明确 id（来自 <task id=...> 或 metadata）且该会话确实存在 → 直接采信，
+    # 不再用时间邻近去猜：续派回的也是同一个会话，猜就会猜错。
+    if hinted and hinted in known:
+        return hinted
     if not candidates:
-        return task.get("child_session")
+        return hinted
     if len(candidates) == 1:
         return candidates[0]["id"]
 
@@ -260,14 +278,33 @@ def analyse(data: dict, project_dir: str, since: int | None) -> dict:
         directory = norm_path(session.get("directory"))
         return bool(directory) and (directory == target or directory.startswith(target + "/"))
 
-    sessions = [s for s in data["sessions"] if in_scope(s)]
+    scoped = [s for s in data["sessions"] if in_scope(s)]
+    by_id = {s["id"]: s for s in scoped}
+    carried_roots: list[dict] = []
+
     if since:
-        # 子会话可能比父会话晚创建，仍按时间过滤
-        sessions = [s for s in sessions if (s["created"] or 0) >= since]
+        # 关键：task 调用记在【父会话】里。若只保留窗口内创建的会话，
+        # 一个早上开着、下午继续派发的老会话会被整条排除，
+        # 于是「跑了 17 次 task」会被显示成「没有 task 调用」。
+        # 所以按「窗口内的会话 + 它们的全部祖先」取闭包，再把 part 按时间裁到窗口内。
+        included: set[str] = set()
+        for sid in {s["id"] for s in scoped if (s["created"] or 0) >= since}:
+            node = by_id.get(sid)
+            while node is not None:
+                included.add(node["id"])
+                node = by_id.get(node["parent_id"]) if node.get("parent_id") else None
+        sessions = [by_id[i] for i in included if i in by_id]
+        carried_roots = [s for s in sessions
+                         if not s["parent_id"] and (s["created"] or 0) < since]
+    else:
+        sessions = scoped
 
     session_ids = {s["id"] for s in sessions}
-    messages = [m for m in data["messages"] if m["session_id"] in session_ids]
-    parts = [p for p in data["parts"] if p["session_id"] in session_ids]
+    floor = since or 0
+    messages = [m for m in data["messages"]
+                if m["session_id"] in session_ids and (m["created"] or 0) >= floor]
+    parts = [p for p in data["parts"]
+             if p["session_id"] in session_ids and (p["created"] or 0) >= floor]
 
     tasks = [t for t in (extract_task(p) for p in parts) if t]
     tasks.sort(key=lambda t: (t["start"] or 0))
@@ -344,6 +381,7 @@ def analyse(data: dict, project_dir: str, since: int | None) -> dict:
         "project_dir": project_dir,
         "matched_projects": matched_projects,
         "sessions": sessions,
+        "carried_roots": carried_roots,
         "messages": messages,
         "parts_count": len(parts),
         "tasks": tasks,
@@ -399,6 +437,10 @@ def render(report: dict) -> str:
         roots = [s for s in report["sessions"] if not s["parent_id"]]
         children = [s for s in report["sessions"] if s["parent_id"]]
         add(f"  根会话 {len(roots)} 个 / 子会话 {len(children)} 个")
+        for root in report.get("carried_roots", []):
+            add(f"  注：根会话 {root['id']} 创建于 {fmt_ms(root['created'])}（早于 --since），"
+                f"因窗口内有子会话而一并纳入；其 part 已裁到窗口内。")
+            add("      这很常见：会话开着不动，下午继续派发。若把它排除，task 记录会一起消失。")
         for session in report["sessions"]:
             depth = 1 if session["parent_id"] else 0
             title = (session["title"] or "").replace("\n", " ")[:46]
