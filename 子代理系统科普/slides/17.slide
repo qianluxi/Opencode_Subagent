@@ -1,0 +1,54 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>04 · 你怎么开始</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>四步，十分钟能跑一遍</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <svg width={1160} height={300} viewBox='0 0 1160 300' style={{ marginTop: 24 }}>
+        <rect x='0' y='8' width='250' height='164' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='20' y='36' fill='#2563EB' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>01</text>
+        <text x='20' y='70' fill='#1E293B' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>定契约</text>
+        <text x='20' y='102' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>把"合格"写下来：格式、</text>
+        <text x='20' y='126' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>页码口径、找不到怎么办</text>
+
+        <path d='M254 90 L 296 90' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M290 84 L 300 90 L 290 96 Z' fill='#CBD5E1' />
+
+        <rect x='303' y='8' width='250' height='164' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='323' y='36' fill='#2563EB' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>02</text>
+        <text x='323' y='70' fill='#1E293B' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>切任务</text>
+        <text x='323' y='102' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>一篇一段，一个文件一个人，</text>
+        <text x='323' y='126' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>一条消息里并列派出去</text>
+
+        <path d='M557 90 L 599 90' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M593 84 L 603 90 L 593 96 Z' fill='#CBD5E1' />
+
+        <rect x='606' y='8' width='250' height='164' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='626' y='36' fill='#2563EB' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>03</text>
+        <text x='626' y='70' fill='#1E293B' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>独立核验</text>
+        <text x='626' y='102' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>换一个人或一个脚本回查，</text>
+        <text x='626' y='126' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>写的人不许自己说通过</text>
+
+        <path d='M860 90 L 902 90' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M896 84 L 906 90 L 896 96 Z' fill='#CBD5E1' />
+
+        <rect x='909' y='8' width='250' height='164' rx='10' fill='#FFF7ED' stroke='#F59E0B' strokeWidth='1.5' />
+        <text x='929' y='36' fill='#B45309' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>04</text>
+        <text x='929' y='70' fill='#1E293B' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>回灌清单</text>
+        <text x='929' y='102' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>把"现文 / 原文 / 位置"</text>
+        <text x='929' y='126' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>三件套交回去，说清错在哪</text>
+
+        <path d='M1034 176 L 1034 226 L 731 226 L 731 182' fill='none' stroke='#F59E0B' strokeWidth='2' strokeDasharray='6 5' />
+        <path d='M725 190 L 731 178 L 737 190 Z' fill='#F59E0B' />
+        <text x='790' y='252' fill='#B45309' fontSize='13' fontFamily='Microsoft YaHei'>改完再核一遍，直到全过</text>
+    </svg>
+
+    <Box style={{ marginTop: 18, background: '#F1F5F9', borderLeft: '3px solid #2563EB', borderRadius: 6, padding: '16px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0F172A' }}>
+            第一次别贪多：切 3 篇就够。跑通了再加量，比一次上 22 篇便宜得多。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 17</Text>
+</Slide>

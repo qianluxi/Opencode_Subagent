@@ -1,0 +1,44 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 02 多，不等于强</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>写的人，不能自己说通过</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <svg width={1160} height={330} viewBox='0 0 1160 330' style={{ position: 'absolute', left: 60, top: 180 }}>
+        <rect x='470' y='0' width='220' height='80' rx='10' fill='#334155' />
+        <text x='580' y='34' textAnchor='middle' fill='#FFFFFF' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>生产</text>
+        <text x='580' y='60' textAnchor='middle' fill='rgba(255,255,255,0.72)' fontSize='14' fontFamily='Microsoft YaHei'>交东西的人</text>
+
+        <rect x='120' y='226' width='220' height='80' rx='10' fill='#334155' />
+        <text x='230' y='260' textAnchor='middle' fill='#FFFFFF' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>裁判</text>
+        <text x='230' y='286' textAnchor='middle' fill='rgba(255,255,255,0.72)' fontSize='14' fontFamily='Microsoft YaHei'>按判据核的人</text>
+
+        <rect x='820' y='226' width='220' height='80' rx='10' fill='#FFF7ED' stroke='#EA580C' strokeWidth='1.5' />
+        <text x='930' y='260' textAnchor='middle' fill='#1E293B' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>审计</text>
+        <text x='930' y='286' textAnchor='middle' fill='#B45309' fontSize='14' fontFamily='Microsoft YaHei'>问判据够不够的人</text>
+
+        <path d='M498 80 C 400 116 320 190 286 222' fill='none' stroke='#94A3B8' strokeWidth='1.5' />
+        <path d='M276 212 L 288 226 L 298 216 Z' fill='#94A3B8' />
+        <text x='330' y='132' textAnchor='middle' fill='#475569' fontSize='15' fontFamily='Microsoft YaHei'>交产出 + 证据</text>
+
+        <path d='M340 266 L 812 266' fill='none' stroke='#94A3B8' strokeWidth='1.5' />
+        <path d='M802 260 L 818 266 L 802 272 Z' fill='#94A3B8' />
+        <text x='576' y='252' textAnchor='middle' fill='#475569' fontSize='15' fontFamily='Microsoft YaHei'>交判定 + 理由</text>
+
+        <path d='M906 226 C 860 176 740 110 664 82' fill='none' stroke='#F59E0B' strokeWidth='1.5' strokeDasharray='6 5' />
+        <path d='M676 92 L 660 80 L 674 74 Z' fill='#F59E0B' />
+        <text x='838' y='132' textAnchor='middle' fill='#B45309' fontSize='15' fontFamily='Microsoft YaHei'>只能退回，不能代改</text>
+    </svg>
+
+    <Box style={{ position: 'absolute', left: 60, top: 536, width: 1160 }}>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.3 }}>
+            写的人不能自己盖章，盖章的人不能自己写。
+        </Text>
+        <Text style={{ fontSize: 17, color: '#475569', lineHeight: 1.7, marginTop: 10 }}>
+            三个身份可以由同一个模型轮流扮演，但必须换材料、换时点、换提问方式——否则三道关会退化成一道。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 10</Text>
+</Slide>

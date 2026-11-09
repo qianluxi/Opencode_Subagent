@@ -1,0 +1,19 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 96, top: 148, width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+    <Text style={{ position: 'absolute', left: 124, top: 146, fontSize: 15, letterSpacing: 3, color: '#334155', fontWeight: 'bold' }}>原理篇</Text>
+
+    <Box style={{ position: 'absolute', left: 96, top: 210, width: 1060 }}>
+        <Text style={{ fontSize: 62, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.35 }}>
+            它的价值不在于更快，<br />而在于每一步都有人能查
+        </Text>
+        <Text style={{ fontSize: 20, color: '#475569', lineHeight: 1.8, marginTop: 44 }}>
+            切得开、判据写清楚、写的人不给自己盖章——这三件事做到，才算真的用上了。
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 96, top: 588, width: 1088, height: 1, background: '#E2E8F0' }} />
+    <Box style={{ position: 'absolute', left: 96, top: 608, width: 1088, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>子代理系统 · 原理篇</Text>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>2026 年 11 月</Text>
+    </Box>
+</Slide>

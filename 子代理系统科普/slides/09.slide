@@ -1,0 +1,41 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>02 · 一个真实案例</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>同时开工，不是排队</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', alignItems: 'flex-start', marginTop: 54 }}>
+        <Box style={{ width: 590 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                <Text style={{ fontSize: 150, fontWeight: 'bold', color: '#2563EB', lineHeight: 1, letterSpacing: -4 }}>49.6</Text>
+                <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#F59E0B', marginLeft: 10, lineHeight: 1.1 }}>秒</Text>
+            </Box>
+            <Text style={{ fontSize: 17, color: '#64748B', marginTop: 22, width: 520, lineHeight: 1.7 }}>
+                三个抽取任务的执行区间，真正重叠的那一段。
+            </Text>
+        </Box>
+
+        <Box style={{ width: 540, flexDirection: 'column', gap: 26, marginTop: 8 }}>
+            <Box>
+                <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0F172A' }}>这个数字不是估的</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.65, marginTop: 8 }}>
+                    每次任务执行的起止时间都记在会话记录里。把三段区间两两比对，取重叠部分，得到 49.6 秒。
+                </Text>
+            </Box>
+            <Box>
+                <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0F172A' }}>为什么不是全部时长</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.65, marginTop: 8 }}>
+                    主控是同一条消息里派出去的，但三个助手有十几秒的启动错峰。即便如此，重叠仍有 49.6 秒——如果是排队串行，这个数应该是 0。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 588, width: 1160, height: 1, background: '#E2E8F0' }} />
+    <Text style={{ position: 'absolute', left: 60, top: 606, width: 1160, fontSize: 18, color: '#0F172A', fontWeight: 'bold' }}>
+        并行不是"感觉快了一点"，是可以被时间戳证明的一件事。
+    </Text>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 09</Text>
+</Slide>

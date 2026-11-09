@@ -1,0 +1,45 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>01 · 它是什么</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>它换的不是话术，是人</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', marginTop: 40, height: 402 }}>
+        <Box style={{ width: 520 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#94A3B8' }} />
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#334155' }}>一个人反复改</Text>
+            </Box>
+            <Box style={{ flexDirection: 'column', gap: 22, marginTop: 26 }}>
+                <Text style={{ fontSize: 18, color: '#475569', lineHeight: 1.6 }}>一个对话框，一段越改越长的提示词。</Text>
+                <Text style={{ fontSize: 18, color: '#475569', lineHeight: 1.6 }}>上下文越堆越乱，前面的要求会被后面的自己覆盖。</Text>
+                <Text style={{ fontSize: 18, color: '#475569', lineHeight: 1.6 }}>它既是作者又是裁判，最后一句"已完成"由它自己说。</Text>
+                <Text style={{ fontSize: 18, color: '#475569', lineHeight: 1.6 }}>出了问题，你说不清是哪一步开始错的。</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 1, height: 402, background: '#E2E8F0', marginLeft: 60, marginRight: 60 }} />
+
+        <Box style={{ width: 520 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#2563EB' }} />
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#1E3A8A' }}>四个人各干一段</Text>
+            </Box>
+            <Box style={{ flexDirection: 'column', gap: 22, marginTop: 26 }}>
+                <Text style={{ fontSize: 18, color: '#1E293B', lineHeight: 1.6 }}>一份契约、四个角色，每人只负责自己那一段。</Text>
+                <Text style={{ fontSize: 18, color: '#1E293B', lineHeight: 1.6 }}>互不通信，就不会互相污染，也不会替别人"顺手改好"。</Text>
+                <Text style={{ fontSize: 18, color: '#1E293B', lineHeight: 1.6 }}>裁判是另一个人，没资格说"我觉得写得挺好"。</Text>
+                <Text style={{ fontSize: 18, color: '#1E293B', lineHeight: 1.6 }}>出错能定位：是抽取抄错了，还是核验漏了一条。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ background: '#F1F5F9', borderLeft: '3px solid #2563EB', borderRadius: 6, padding: '16px 22px', marginTop: 26 }}>
+        <Text style={{ fontSize: 19, color: '#0F172A', fontWeight: 'bold' }}>
+            关键差别不在模型多聪明，在"谁有资格说通过"。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 06</Text>
+</Slide>

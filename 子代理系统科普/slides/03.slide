@@ -1,0 +1,8 @@
+<Slide style={{ width: 1280, height: 720, background: '#F8FAFC', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160, height: 600, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 148, fontWeight: 'bold', color: '#2563EB', lineHeight: 1, letterSpacing: 4 }}>01</Text>
+        <Box style={{ width: 56, height: 3, background: '#F59E0B', marginTop: 18, marginBottom: 18 }} />
+        <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#0F172A', letterSpacing: 2 }}>它是什么</Text>
+        <Text style={{ fontSize: 19, color: '#64748B', marginTop: 16 }}>不是把提示词写得更长，是换一种分工方式</Text>
+    </Box>
+</Slide>

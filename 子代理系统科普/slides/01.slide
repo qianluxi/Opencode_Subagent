@@ -1,0 +1,19 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 0, top: 0, width: 10, height: 720, background: '#2563EB' }} />
+
+    <Box style={{ position: 'absolute', left: 96, top: 150, right: 140 }}>
+        <Text style={{ fontSize: 15, color: '#2563EB', fontWeight: 'bold', letterSpacing: 3 }}>SUBAGENT · 科普</Text>
+        <Text style={{ fontSize: 72, fontWeight: 'bold', color: '#0F172A', lineHeight: 1.2, marginTop: 26 }}>
+            一个人干不完的活，<br />怎么分给四个 AI
+        </Text>
+        <Text style={{ fontSize: 24, color: '#475569', lineHeight: 1.6, marginTop: 30 }}>
+            先讲清它是什么，再用一个真实案例走一遍
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 96, top: 576, width: 1088, height: 1, background: '#E2E8F0' }} />
+    <Box style={{ position: 'absolute', left: 96, top: 596, right: 140, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>子代理系统入门 · 内部技术分享</Text>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>2026 年 11 月</Text>
+    </Box>
+</Slide>

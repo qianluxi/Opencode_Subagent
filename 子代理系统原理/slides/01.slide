@@ -1,0 +1,19 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 96, top: 132, width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+    <Text style={{ position: 'absolute', left: 124, top: 130, fontSize: 15, letterSpacing: 3, color: '#334155', fontWeight: 'bold' }}>SUBAGENT · 原理篇</Text>
+
+    <Box style={{ position: 'absolute', left: 96, top: 212, width: 1000 }}>
+        <Text style={{ fontSize: 70, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.22 }}>
+            一个人的活，<br />怎么拆成能被验收的小块
+        </Text>
+        <Text style={{ fontSize: 24, color: '#475569', lineHeight: 1.6, marginTop: 34 }}>
+            六条结构性原理，不绑定工具，也不绑定任务
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 96, top: 580, width: 1088, height: 1, background: '#E2E8F0' }} />
+    <Box style={{ position: 'absolute', left: 96, top: 600, width: 1088, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>子代理系统 · 原理篇 · 内部技术分享</Text>
+        <Text style={{ fontSize: 15, color: '#94A3B8' }}>2026 年 11 月</Text>
+    </Box>
+</Slide>

@@ -1,0 +1,50 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>04 · 你怎么开始</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>三个最常见的误会</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 24, marginTop: 30, alignItems: 'flex-start' }}>
+        <Box style={{ width: 330, height: 296, border: '1px solid #E2E8F0', borderRadius: 10, borderTop: '4px solid #2563EB', padding: '20px 22px', justifyContent: 'space-between' }}>
+            <Box>
+                <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>误会 01</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0F172A', marginTop: 10, lineHeight: 1.4 }}>"它就是个更强的提示词"</Text>
+                <Text style={{ fontSize: 16, color: '#475569', marginTop: 12, lineHeight: 1.65 }}>
+                    提示词管的是一段话；子代理管的是一次分工——谁读哪份、谁写哪个文件、谁有资格说通过。
+                </Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#1E40AF', lineHeight: 1.5 }}>认法：看它有没有独立的产出文件和独立的核验者。</Text>
+        </Box>
+
+        <Box style={{ width: 390, height: 320, border: '1px solid #E2E8F0', borderRadius: 10, borderTop: '4px solid #2563EB', padding: '20px 22px', justifyContent: 'space-between' }}>
+            <Box>
+                <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>误会 02</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0F172A', marginTop: 10, lineHeight: 1.4 }}>"让几个 AI 互相检查就够了"</Text>
+                <Text style={{ fontSize: 16, color: '#475569', marginTop: 12, lineHeight: 1.65 }}>
+                    没有共同标准的互检，只会得到一堆"我觉得没问题"。检查要有效，得先有契约，让"不对"落成一个能指认的位置：第几条、哪一句、第几页。
+                </Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#1E40AF', lineHeight: 1.5 }}>认法：问它"错了会报在哪一行"，答不出就是没契约。</Text>
+        </Box>
+
+        <Box style={{ width: 392, height: 344, border: '1px solid #E2E8F0', borderRadius: 10, borderTop: '4px solid #F59E0B', padding: '20px 22px', justifyContent: 'space-between' }}>
+            <Box>
+                <Text style={{ fontSize: 13, color: '#B45309', letterSpacing: 2 }}>误会 03</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0F172A', marginTop: 10, lineHeight: 1.4 }}>"通过率 100% 就可以交付"</Text>
+                <Text style={{ fontSize: 16, color: '#475569', marginTop: 12, lineHeight: 1.65 }}>
+                    通过率只覆盖能被机械判的那一层。前面那 4 条就是 100% 通过、0 条有用。判断层那一段必须留给人，哪怕只抽 30%，也要真有人看过。
+                </Text>
+            </Box>
+            <Text style={{ fontSize: 15, color: '#B45309', lineHeight: 1.5 }}>认法：交付前先问"这东西谁看过"，没人看过就不算完。</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ marginTop: 26, background: '#F1F5F9', borderLeft: '3px solid #2563EB', borderRadius: 6, padding: '16px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0F172A' }}>
+            三个误会指向同一件事：子代理买的不是"更聪明"，是"能被检查"。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 18</Text>
+</Slide>

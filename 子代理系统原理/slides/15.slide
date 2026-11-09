@@ -1,0 +1,7 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Text style={{ position: 'absolute', left: 60, top: 236, fontFamily: 'Consolas', fontSize: 176, fontWeight: 'bold', color: '#CBD5E1', lineHeight: 1 }}>04</Text>
+    <Box style={{ position: 'absolute', left: 336, top: 274, width: 780 }}>
+        <Text style={{ fontSize: 56, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.25 }}>该不该用</Text>
+        <Text style={{ fontSize: 18, color: '#64748B', marginTop: 24, lineHeight: 1.6 }}>两个问题决定要不要拆，一笔账决定值不值</Text>
+    </Box>
+</Slide>

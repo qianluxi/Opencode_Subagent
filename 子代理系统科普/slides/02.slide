@@ -1,0 +1,28 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Text style={{ fontSize: 14, color: '#2563EB', fontWeight: 'bold', letterSpacing: 3 }}>CONTENTS</Text>
+    <Text style={{ fontSize: 54, fontWeight: 'bold', color: '#0F172A', lineHeight: 1.2, marginTop: 10 }}>目录</Text>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 26 }} />
+
+    <Box style={{ flexDirection: 'column', marginTop: 8 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 94, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#2563EB', width: 90 }}>01</Text>
+            <Text style={{ fontSize: 26, color: '#1E293B', flex: 1 }}>它是什么</Text>
+            <Text style={{ fontSize: 18, color: '#94A3B8' }}>P03</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 94, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#2563EB', width: 90 }}>02</Text>
+            <Text style={{ fontSize: 26, color: '#1E293B', flex: 1 }}>一个真实案例：三篇论文、三个 agent</Text>
+            <Text style={{ fontSize: 18, color: '#94A3B8' }}>P07</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 94, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#2563EB', width: 90 }}>03</Text>
+            <Text style={{ fontSize: 26, color: '#1E293B', flex: 1 }}>为什么"通过"会说谎</Text>
+            <Text style={{ fontSize: 18, color: '#94A3B8' }}>P12</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 94 }}>
+            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#2563EB', width: 90 }}>04</Text>
+            <Text style={{ fontSize: 26, color: '#1E293B', flex: 1 }}>你怎么开始</Text>
+            <Text style={{ fontSize: 18, color: '#94A3B8' }}>P16</Text>
+        </Box>
+    </Box>
+</Slide>

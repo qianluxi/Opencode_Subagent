@@ -1,0 +1,57 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>01 · 它是什么</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>主控派活，子代理交活</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 40, marginTop: 34, height: 430 }}>
+        <svg width={640} height={430} viewBox='0 0 640 430'>
+            <rect x='0' y='170' width='188' height='96' rx='10' fill='#2563EB' />
+            <text x='94' y='208' textAnchor='middle' fill='#FFFFFF' fontSize='22' fontWeight='bold' fontFamily='Microsoft YaHei'>主控</text>
+            <text x='94' y='236' textAnchor='middle' fill='rgba(255,255,255,0.86)' fontSize='13' fontFamily='Microsoft YaHei'>拆活 · 派发 · 收结果</text>
+
+            <path d='M188 218 C 300 218 300 66 414 66' fill='none' stroke='#93C5FD' strokeWidth='2' />
+            <path d='M188 218 L 414 210' fill='none' stroke='#93C5FD' strokeWidth='2' />
+            <path d='M188 218 C 300 218 300 354 414 354' fill='none' stroke='#93C5FD' strokeWidth='2' />
+
+            <rect x='414' y='24' width='212' height='84' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+            <text x='520' y='62' textAnchor='middle' fill='#1E293B' fontSize='18' fontWeight='bold' fontFamily='Microsoft YaHei'>抽取 A · 第 1 篇</text>
+            <text x='520' y='88' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>只读自己那一篇</text>
+
+            <rect x='414' y='168' width='212' height='84' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+            <text x='520' y='206' textAnchor='middle' fill='#1E293B' fontSize='18' fontWeight='bold' fontFamily='Microsoft YaHei'>抽取 B · 第 2 篇</text>
+            <text x='520' y='232' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>只写自己那一个文件</text>
+
+            <rect x='414' y='312' width='212' height='84' rx='10' fill='#FFF7ED' stroke='#F59E0B' strokeWidth='1.5' />
+            <text x='520' y='350' textAnchor='middle' fill='#1E293B' fontSize='18' fontWeight='bold' fontFamily='Microsoft YaHei'>审计员 · 第 3 位</text>
+            <text x='520' y='376' textAnchor='middle' fill='#B45309' fontSize='13' fontFamily='Microsoft YaHei'>只判"撑不撑得住"</text>
+
+            <text x='94' y='316' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>一条消息里同时派出</text>
+            <text x='94' y='340' textAnchor='middle' fill='#94A3B8' fontSize='12' fontFamily='Microsoft YaHei'>三个助手并行开工</text>
+        </svg>
+
+        <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2563EB' }}>主控不干活，只拆活</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 6 }}>
+                    把"22 篇"切成一篇一个助手，派出去，最后只收结果。
+                </Text>
+            </Box>
+            <Box>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2563EB' }}>每个助手只看自己那段</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 6 }}>
+                    读一篇原文、一份契约，不看别人的产出，也不看裁判的代码。
+                </Text>
+            </Box>
+            <Box>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2563EB' }}>交回来的是"证据"，不是"总结"</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 6 }}>
+                    原句加页码，能被工具逐条回查，而不是一段读着顺的文字。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 05</Text>
+</Slide>

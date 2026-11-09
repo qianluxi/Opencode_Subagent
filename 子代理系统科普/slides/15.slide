@@ -1,0 +1,51 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>03 · 为什么"通过"会说谎</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>它抓得住，但别让它放行</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', gap: 40, marginTop: 30, height: 292 }}>
+        <Box style={{ width: 470, background: '#EFF6FF', borderRadius: 10, padding: '26px 28px', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 14, color: '#1E40AF', letterSpacing: 1 }}>与人工标注的一致性</Text>
+            <Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                    <Text style={{ fontSize: 84, fontWeight: 'bold', color: '#2563EB', lineHeight: 1 }}>11/13</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#334155', marginTop: 14, lineHeight: 1.65 }}>
+                    两个互相看不见的审计员都判 11/13，而且两人之间 13 条完全一致。错的那两条，是同一个口径问题。
+                </Text>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 650, flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 24 }}>
+                <Box style={{ width: 150 }}>
+                    <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#2563EB', lineHeight: 1.05 }}>5/5</Text>
+                    <Text style={{ fontSize: 14, color: '#64748B', marginTop: 6 }}>注入错误全抓到</Text>
+                </Box>
+                <Text style={{ flex: 1, fontSize: 17, color: '#334155', lineHeight: 1.65, paddingTop: 6 }}>
+                    故意把论断改坏五处：说反、换对象、放大范围、凭空加"唯一"。五条全部没被放行。
+                </Text>
+            </Box>
+
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 24 }}>
+                <Box style={{ width: 150 }}>
+                    <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#F59E0B', lineHeight: 1.05 }}>2/5</Text>
+                    <Text style={{ fontSize: 14, color: '#B45309', marginTop: 6 }}>严重程度判错</Text>
+                </Box>
+                <Text style={{ flex: 1, fontSize: 17, color: '#334155', lineHeight: 1.65, paddingTop: 6 }}>
+                    该说"这条不能用"的，被说成"改一下措辞就行"。拦是拦住了，但拦得偏轻——拿它当自动闸门会漏。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ marginTop: 26, background: '#F1F5F9', borderLeft: '3px solid #2563EB', borderRadius: 6, padding: '16px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#0F172A' }}>
+            正确用法是"分诊"：它说没问题的可以过，它说有问题的一律人看。反过来的自动化，会漏。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 15</Text>
+</Slide>

@@ -1,0 +1,53 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 01 拆得开，才派得动</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>三个边界，把子代理隔开</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <svg width={1160} height={206} viewBox='0 0 1160 206' style={{ position: 'absolute', left: 60, top: 182 }}>
+        <rect x='0' y='54' width='200' height='98' rx='8' fill='#334155' />
+        <text x='100' y='96' textAnchor='middle' fill='#FFFFFF' fontSize='20' fontWeight='bold' fontFamily='Microsoft YaHei'>主控</text>
+        <text x='100' y='124' textAnchor='middle' fill='rgba(255,255,255,0.72)' fontSize='14' fontFamily='Microsoft YaHei'>拆活 · 收结果</text>
+
+        <path d='M330 8 L 330 188' fill='none' stroke='#94A3B8' strokeWidth='1.5' strokeDasharray='6 5' />
+        <text x='330' y='200' textAnchor='middle' fill='#94A3B8' fontSize='14' fontFamily='Microsoft YaHei'>边界</text>
+
+        <path d='M200 90 C 300 90 300 34 394 34' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M200 103 L 394 103' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M200 116 C 300 116 300 172 394 172' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+
+        <rect x='400' y='8' width='660' height='54' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='422' y='30' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>子代理 A</text>
+        <text x='422' y='50' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>只看见自己那一份材料、那一个文件</text>
+
+        <rect x='400' y='76' width='660' height='54' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='422' y='98' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>子代理 B</text>
+        <text x='422' y='118' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>看不见 A 的产出，也看不见裁判怎么判</text>
+
+        <rect x='400' y='144' width='660' height='54' rx='8' fill='#FFF7ED' stroke='#EA580C' strokeWidth='1.5' />
+        <text x='422' y='166' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>裁判</text>
+        <text x='422' y='186' fill='#B45309' fontSize='14' fontFamily='Microsoft YaHei'>只看产出与判据，不看是谁写的</text>
+    </svg>
+
+    <Box style={{ position: 'absolute', left: 60, top: 402, width: 1160 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 62, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ width: 150, fontSize: 17, fontWeight: 'bold', color: '#334155' }}>文件边界</Text>
+            <Text style={{ flex: 1, fontSize: 17, color: '#334155' }}>谁能写哪个文件。写别人的文件一律拒——靠规则，不靠嘱咐。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 62, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ width: 150, fontSize: 17, fontWeight: 'bold', color: '#334155' }}>信息边界</Text>
+            <Text style={{ flex: 1, fontSize: 17, color: '#334155' }}>谁能看哪份材料。生产者看到裁判的实现，就会照着裁判写。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 62 }}>
+            <Text style={{ width: 150, fontSize: 17, fontWeight: 'bold', color: '#334155' }}>时间边界</Text>
+            <Text style={{ flex: 1, fontSize: 17, color: '#334155' }}>子会话结束，过程留在里面。主控只收结论，不收过程。</Text>
+        </Box>
+    </Box>
+
+    <Text style={{ position: 'absolute', left: 60, top: 602, width: 1160, fontSize: 19, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.5 }}>
+        隔离不是为了保密，是为了防污染、防照抄、防主控的上下文被过程撑爆。
+    </Text>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 06</Text>
+</Slide>

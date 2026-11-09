@@ -1,0 +1,37 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>03 · 为什么"通过"会说谎</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>一条引文要过两道关</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <svg width={1160} height={342} viewBox='0 0 1160 342' style={{ marginTop: 22 }}>
+        <rect x='0' y='6' width='1160' height='126' rx='10' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='30' y='42' fill='#2563EB' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>第一关</text>
+        <text x='30' y='78' fill='#1E293B' fontSize='24' fontWeight='bold' fontFamily='Microsoft YaHei'>引文层</text>
+        <text x='30' y='108' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>这句是不是原文</text>
+        <text x='316' y='62' fill='#334155' fontSize='16' fontFamily='Microsoft YaHei'>查三件事：句子在不在库里、页码对不对、署的作者是不是这一篇。</text>
+        <text x='316' y='96' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>结果是判定码：PASS / PAGE / PARAPHRASE / MISSING / NOPAGE</text>
+        <text x='1012' y='76' fill='#2563EB' fontSize='16' fontWeight='bold' fontFamily='Microsoft YaHei'>机器可判</text>
+
+        <path d='M560 136 L 560 190' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M553 182 L 560 194 L 567 182 Z' fill='#CBD5E1' />
+        <text x='582' y='170' fill='#94A3B8' fontSize='12' fontFamily='Microsoft YaHei'>过了才往下走</text>
+
+        <rect x='0' y='198' width='1160' height='126' rx='10' fill='#FFF7ED' stroke='#F59E0B' strokeWidth='1.5' />
+        <text x='30' y='234' fill='#B45309' fontSize='13' letterSpacing='2' fontFamily='Microsoft YaHei'>第二关</text>
+        <text x='30' y='270' fill='#1E293B' fontSize='24' fontWeight='bold' fontFamily='Microsoft YaHei'>论断层</text>
+        <text x='30' y='300' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>这句撑不撑得住</text>
+        <text x='316' y='254' fill='#334155' fontSize='16' fontFamily='Microsoft YaHei'>引文是真的，但它撑得起前面那句论断吗？它有没有答非所问、有没有说过头？</text>
+        <text x='316' y='288' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>没有判定码，只有判断：撑得住 / 撑一半 / 撑不住</text>
+        <text x='1012' y='268' fill='#B45309' fontSize='16' fontWeight='bold' fontFamily='Microsoft YaHei'>机器判不了</text>
+    </svg>
+
+    <Box style={{ marginTop: 12, background: '#F1F5F9', borderRadius: 6, padding: '14px 20px' }}>
+        <Text style={{ fontSize: 18, color: '#0F172A', fontWeight: 'bold' }}>
+            第一关过了，只证明这句话是真的；第二关过了，才证明这句话有用。前者能全自动，后者只能半自动。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 14</Text>
+</Slide>

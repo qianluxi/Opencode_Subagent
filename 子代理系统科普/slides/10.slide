@@ -1,0 +1,51 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ flexDirection: 'row', height: 600, gap: 44 }}>
+        <Box style={{ width: 340, height: 600, background: '#1E3A8A', borderRadius: 12, padding: '34px 28px', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', letterSpacing: 2 }}>02 · 一个真实案例</Text>
+            <Text style={{ fontSize: 36, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.4 }}>
+                把要求，写成<br />机器能判的规则
+            </Text>
+            <Text style={{ fontSize: 14, color: 'rgba(255,255,255,0.78)', lineHeight: 1.7 }}>
+                契约是唯一来源。<br />谁都不许边跑边改。
+            </Text>
+        </Box>
+
+        <Box style={{ flex: 1, height: 600, justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 14, color: '#64748B', letterSpacing: 1 }}>六条硬规则 · 违反任一条，产出判为不合格</Text>
+
+            <Box style={{ flexDirection: 'column' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60, borderBottom: '1px solid #E2E8F0' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2563EB', width: 132 }}>逐字</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>从原文复制，不改词、不拼接两句、不省略中间</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60, borderBottom: '1px solid #E2E8F0' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2563EB', width: 132 }}>够长</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>至少 20 个英文字母，太短的会被工具静默跳过</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60, borderBottom: '1px solid #E2E8F0' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2563EB', width: 132 }}>不跨页</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>一条引文必须完整落在同一页内</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60, borderBottom: '1px solid #E2E8F0' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2563EB', width: 132 }}>页码取实际页</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>用 PDF 物理页，不用期刊印张页码</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60, borderBottom: '1px solid #E2E8F0' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#2563EB', width: 132 }}>不加多余引号</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>每一对双引号都会被当成待校验引文</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', height: 60 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#F59E0B', width: 132 }}>找不到就认</Text>
+                    <Text style={{ fontSize: 18, color: '#334155', flex: 1 }}>写 NOT_FOUND 并列出查过的页，编一条最严重</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ background: '#F1F5F9', borderLeft: '3px solid #2563EB', borderRadius: 6, padding: '14px 20px' }}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0F172A' }}>
+                    契约不是为了"让 AI 更听话"，是为了让"合格"这件事能被别人判。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 10</Text>
+</Slide>

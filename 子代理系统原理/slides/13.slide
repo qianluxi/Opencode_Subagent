@@ -1,0 +1,14 @@
+<Slide style={{ width: 1280, height: 720, background: '#1E293B', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Text style={{ position: 'absolute', left: 96, top: 196, fontFamily: 'Consolas', fontSize: 15, letterSpacing: 3, color: '#FB923C' }}>原理 07</Text>
+
+    <Box style={{ position: 'absolute', left: 96, top: 244, width: 1060 }}>
+        <Text style={{ fontSize: 56, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.35 }}>
+            "全部通过"这四个字，<br />只覆盖判据里写过的东西
+        </Text>
+        <Text style={{ fontSize: 18, color: '#CBD5E1', lineHeight: 1.9, marginTop: 56 }}>
+            判据之外没有信息量。通过率越高，越容易让人把"没查到问题"当成"没有问题"。
+        </Text>
+    </Box>
+
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#64748B' }}>原理篇 · 13</Text>
+</Slide>

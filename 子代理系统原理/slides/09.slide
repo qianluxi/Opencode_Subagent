@@ -1,0 +1,72 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 02 多，不等于强</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>并行只发生在没有依赖的地方</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <svg width={616} height={430} viewBox='0 0 616 430' style={{ position: 'absolute', left: 54, top: 186 }}>
+        <rect x='40' y='8' width='166' height='64' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='123' y='47' textAnchor='middle' fill='#1E293B' fontSize='16' fontFamily='Microsoft YaHei'>片段 A</text>
+        <rect x='225' y='8' width='166' height='64' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='308' y='47' textAnchor='middle' fill='#1E293B' fontSize='16' fontFamily='Microsoft YaHei'>片段 B</text>
+        <rect x='410' y='8' width='166' height='64' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='493' y='47' textAnchor='middle' fill='#1E293B' fontSize='16' fontFamily='Microsoft YaHei'>片段 C</text>
+
+        <path d='M123 72 L 123 146' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M308 72 L 308 146' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M493 72 L 493 146' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M117 138 L 123 150 L 129 138 Z' fill='#CBD5E1' />
+        <path d='M302 138 L 308 150 L 314 138 Z' fill='#CBD5E1' />
+        <path d='M487 138 L 493 150 L 499 138 Z' fill='#CBD5E1' />
+
+        <text x='40' y='118' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>可并行</text>
+
+        <rect x='60' y='152' width='500' height='66' rx='8' fill='#334155' />
+        <text x='310' y='192' textAnchor='middle' fill='#FFFFFF' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>汇总：三份都到齐，才能往下走</text>
+
+        <path d='M310 218 L 310 272' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+        <path d='M304 264 L 310 276 L 316 264 Z' fill='#CBD5E1' />
+        <text x='322' y='252' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>必须串行</text>
+
+        <rect x='150' y='278' width='320' height='66' rx='8' fill='#F1F5F9' stroke='#94A3B8' strokeWidth='1.5' />
+        <text x='310' y='318' textAnchor='middle' fill='#1E293B' fontSize='17' fontFamily='Microsoft YaHei'>合并 · 判定 · 交付</text>
+
+        <text x='40' y='388' fill='#94A3B8' fontSize='14' fontFamily='Microsoft YaHei'>先画这张图，再决定谁和谁同时开工</text>
+    </svg>
+
+    <Box style={{ position: 'absolute', left: 714, top: 190, width: 506 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>伪并行的三种样子</Text>
+        <Box style={{ marginTop: 16 }}>
+            <Box style={{ flexDirection: 'row', paddingBottom: 16, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>01</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B' }}>抢同一个文件</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 5 }}>同时发出去，谁最后写谁生效，前一个人的活白干。</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', paddingTop: 16, paddingBottom: 16, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>02</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B' }}>后一步要等前一步的结论</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 5 }}>消息发得出去，跑起来只能空等——时间线并不会重叠。</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', paddingTop: 16 }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>03</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B' }}>都改同一份汇总</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 5 }}>三份改动互相冲掉，最后还得有一个人重做一遍。</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 620, width: 1160 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.5 }}>
+            并行是"没有依赖"的结果，不是"多发几条消息"的结果。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 09</Text>
+</Slide>

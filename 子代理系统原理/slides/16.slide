@@ -1,0 +1,48 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 04 该不该用</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>先问切分，再问判定</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <svg width={780} height={430} viewBox='0 0 780 430' style={{ position: 'absolute', left: 60, top: 186 }}>
+        <text x='180' y='22' fill='#64748B' fontSize='15' fontFamily='Microsoft YaHei'>↑ 任务能切成互不依赖的单元</text>
+        <text x='740' y='420' textAnchor='end' fill='#64748B' fontSize='15' fontFamily='Microsoft YaHei'>产出能被机械判定 →</text>
+
+        <rect x='180' y='34' width='280' height='180' fill='#F1F5F9' />
+        <text x='200' y='72' fill='#1E293B' fontSize='19' fontWeight='bold' fontFamily='Microsoft YaHei'>可并行，但要人看</text>
+        <text x='200' y='104' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>切得开，好不好却只能人判</text>
+        <text x='200' y='128' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>产出必须进人工队列</text>
+
+        <rect x='460' y='34' width='280' height='180' fill='#FFF7ED' stroke='#EA580C' strokeWidth='1.5' />
+        <text x='480' y='72' fill='#1E293B' fontSize='19' fontWeight='bold' fontFamily='Microsoft YaHei'>多代理的主场</text>
+        <text x='480' y='104' fill='#B45309' fontSize='14' fontFamily='Microsoft YaHei'>切得开，也判得了</text>
+        <text x='480' y='128' fill='#B45309' fontSize='14' fontFamily='Microsoft YaHei'>并行与自动核验都能兑现</text>
+
+        <rect x='180' y='214' width='280' height='180' fill='#FFFFFF' stroke='#E2E8F0' strokeWidth='1.5' />
+        <text x='200' y='252' fill='#1E293B' fontSize='19' fontWeight='bold' fontFamily='Microsoft YaHei'>别拆</text>
+        <text x='200' y='284' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>切不开也判不了</text>
+        <text x='200' y='308' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>拆了没人能验收</text>
+
+        <rect x='460' y='214' width='280' height='180' fill='#FFFFFF' stroke='#E2E8F0' strokeWidth='1.5' />
+        <text x='480' y='252' fill='#1E293B' fontSize='19' fontWeight='bold' fontFamily='Microsoft YaHei'>单代理 + 工具</text>
+        <text x='480' y='284' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>判得了，但切不开</text>
+        <text x='480' y='308' fill='#475569' fontSize='14' fontFamily='Microsoft YaHei'>加人只会增加协调成本</text>
+    </svg>
+
+    <Box style={{ position: 'absolute', left: 876, top: 200, width: 344 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>判断的顺序不能反</Text>
+        <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.8, marginTop: 12 }}>
+            先看能不能切，再看能不能判。顺序反了，会得到"看起来很自动、其实没人敢用"的系统。
+        </Text>
+        <Box style={{ height: 1, background: '#E2E8F0', marginTop: 22, marginBottom: 22 }} />
+        <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.8 }}>
+            切不开就不要加人；判不了就不要自动放行。两个条件都成立，才轮得到谈并行和提速。
+        </Text>
+        <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.8, marginTop: 22 }}>
+            矩阵里唯一值得投入自动化的，只有右上那一格。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 16</Text>
+</Slide>

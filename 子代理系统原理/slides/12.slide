@@ -1,0 +1,53 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 03 它会怎么失败</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>五种翻车，没有一种怪模型</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 188, width: 1160, border: '1px solid #E2E8F0', borderRadius: 8, overflow: 'hidden' }}>
+        <Box style={{ flexDirection: 'row', height: 50, background: '#334155', alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', width: 330, paddingLeft: 22 }}>看到的症状</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', width: 490 }}>真正的根因</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#FFFFFF', flex: 1 }}>该补哪一条</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', height: 68, alignItems: 'center', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B', width: 330, paddingLeft: 22 }}>两个助手改同一个文件</Text>
+            <Text style={{ fontSize: 17, color: '#475569', width: 490 }}>按工作量切，没按产出切</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>原理 01 · 一份产出一个负责人</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', height: 68, alignItems: 'center', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B', width: 330, paddingLeft: 22 }}>交上来的格式各不相同</Text>
+            <Text style={{ fontSize: 17, color: '#475569', width: 490 }}>没有契约，每个助手自己发明标准</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>原理 02 · 先写契约再派人</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', height: 68, alignItems: 'center', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B', width: 330, paddingLeft: 22 }}>它交出的答案特别"标准"</Text>
+            <Text style={{ fontSize: 17, color: '#475569', width: 490 }}>没设信息边界，看得见裁判就照着写</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>原理 03 · 三个边界</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', height: 68, alignItems: 'center', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B', width: 330, paddingLeft: 22 }}>三个助手给出同一个错</Text>
+            <Text style={{ fontSize: 17, color: '#475569', width: 490 }}>同材料同视角，一致只是回声</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>原理 04 · 要差异，不要数量</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', height: 68, alignItems: 'center' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#1E293B', width: 330, paddingLeft: 22 }}>全部通过，人一看全错</Text>
+            <Text style={{ fontSize: 17, color: '#475569', width: 490 }}>判据只覆盖了形式，没覆盖内容</Text>
+            <Text style={{ fontSize: 17, color: '#EA580C', flex: 1, fontWeight: 'bold' }}>原理 07 · 看清判据的边界</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 600, width: 1160 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.5 }}>
+            这五种失败，没有一种是"模型不够聪明"；全部出在任务怎么切、判据怎么写、边界怎么设。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 12</Text>
+</Slide>

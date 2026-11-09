@@ -1,0 +1,60 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 04 该不该用</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>并行省的是生产时间，不省验证时间</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <svg width={1160} height={216} viewBox='0 0 1160 216' style={{ position: 'absolute', left: 60, top: 186 }}>
+        <text x='0' y='66' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>串行</text>
+        <rect x='140' y='34' width='120' height='48' fill='#334155' />
+        <text x='200' y='64' textAnchor='middle' fill='#FFFFFF' fontSize='14' fontFamily='Microsoft YaHei'>写 1</text>
+        <rect x='260' y='34' width='80' height='48' fill='#CBD5E1' />
+        <text x='300' y='64' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 1</text>
+        <rect x='340' y='34' width='120' height='48' fill='#334155' />
+        <text x='400' y='64' textAnchor='middle' fill='#FFFFFF' fontSize='14' fontFamily='Microsoft YaHei'>写 2</text>
+        <rect x='460' y='34' width='80' height='48' fill='#CBD5E1' />
+        <text x='500' y='64' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 2</text>
+        <rect x='540' y='34' width='120' height='48' fill='#334155' />
+        <text x='600' y='64' textAnchor='middle' fill='#FFFFFF' fontSize='14' fontFamily='Microsoft YaHei'>写 3</text>
+        <rect x='660' y='34' width='80' height='48' fill='#CBD5E1' />
+        <text x='700' y='64' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 3</text>
+        <text x='758' y='66' fill='#334155' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>600</text>
+
+        <text x='0' y='146' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>并行</text>
+        <rect x='140' y='114' width='120' height='48' fill='#334155' />
+        <text x='200' y='144' textAnchor='middle' fill='#FFFFFF' fontSize='14' fontFamily='Microsoft YaHei'>写 1·2·3</text>
+        <rect x='260' y='114' width='80' height='48' fill='#CBD5E1' />
+        <text x='300' y='144' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 1</text>
+        <rect x='340' y='114' width='80' height='48' fill='#CBD5E1' />
+        <text x='380' y='144' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 2</text>
+        <rect x='420' y='114' width='80' height='48' fill='#CBD5E1' />
+        <text x='460' y='144' textAnchor='middle' fill='#1E293B' fontSize='14' fontFamily='Microsoft YaHei'>验 3</text>
+        <text x='518' y='146' fill='#EA580C' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>360</text>
+
+        <text x='140' y='196' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>深色 = 生产　浅色 = 核验　（口径示意，非实测数据）</text>
+    </svg>
+
+    <Box style={{ position: 'absolute', left: 60, top: 412, width: 1160 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 52, borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ width: 130, fontSize: 16, fontWeight: 'bold', color: '#334155' }}>上下文</Text>
+            <Text style={{ flex: 1, fontSize: 16, color: '#334155' }}>过程留在子会话里，主控只收结论——省的是主控，不是总时长。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 52, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ width: 130, fontSize: 16, fontWeight: 'bold', color: '#334155' }}>协调</Text>
+            <Text style={{ flex: 1, fontSize: 16, color: '#334155' }}>每多一个角色，就多一份契约、多一次合并、多一处可能对不齐。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', height: 52, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ width: 130, fontSize: 16, fontWeight: 'bold', color: '#334155' }}>验证</Text>
+            <Text style={{ flex: 1, fontSize: 16, color: '#334155' }}>产出越多，回查越多。这一笔省不掉，也不该省。</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 600, width: 1160 }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.5 }}>
+            所以加速有上限：任务里验证占比越高，并行带来的加速越接近 1 倍。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 17</Text>
+</Slide>

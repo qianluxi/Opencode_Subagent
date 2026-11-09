@@ -13,3 +13,7 @@ Thumbs.db
 
 # 本地工作记录（不属于验证项目内容）
 .workbuddy/
+
+# 演示文稿工具的运行缓存与日志（只保留 DESIGN.md / slides / pptx）
+.slidep/
+.cache/

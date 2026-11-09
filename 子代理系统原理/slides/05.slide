@@ -1,0 +1,57 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 01 拆得开，才派得动</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>先写契约，再派人</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 54, top: 182, width: 600 }}>
+        <svg width={600} height={400} viewBox='0 0 600 400'>
+            <rect x='200' y='142' width='200' height='118' rx='10' fill='#334155' />
+            <text x='300' y='186' textAnchor='middle' fill='#FFFFFF' fontSize='24' fontWeight='bold' fontFamily='Microsoft YaHei'>契约</text>
+            <text x='300' y='216' textAnchor='middle' fill='rgba(255,255,255,0.72)' fontSize='14' fontFamily='Microsoft YaHei'>输入 · 判据 · 失败信号</text>
+            <text x='300' y='240' textAnchor='middle' fill='rgba(255,255,255,0.5)' fontSize='14' fontFamily='Microsoft YaHei'>同一份，谁都一样</text>
+
+            <rect x='8' y='14' width='176' height='86' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+            <text x='96' y='50' textAnchor='middle' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>子代理 A</text>
+            <text x='96' y='76' textAnchor='middle' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>只读契约</text>
+
+            <rect x='8' y='300' width='176' height='86' rx='8' fill='#FFFFFF' stroke='#94A3B8' strokeWidth='1.5' />
+            <text x='96' y='336' textAnchor='middle' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>子代理 B</text>
+            <text x='96' y='362' textAnchor='middle' fill='#64748B' fontSize='14' fontFamily='Microsoft YaHei'>只读契约</text>
+
+            <rect x='416' y='152' width='176' height='86' rx='8' fill='#FFF7ED' stroke='#EA580C' strokeWidth='1.5' />
+            <text x='504' y='188' textAnchor='middle' fill='#1E293B' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>裁判</text>
+            <text x='504' y='214' textAnchor='middle' fill='#B45309' fontSize='14' fontFamily='Microsoft YaHei'>按同一份判据</text>
+
+            <path d='M184 78 C 230 78 200 142 200 160' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+            <path d='M184 322 C 230 322 200 260 200 242' fill='none' stroke='#CBD5E1' strokeWidth='1.5' />
+            <path d='M400 201 L 412 201' fill='none' stroke='#F59E0B' strokeWidth='1.5' />
+
+            <text x='96' y='200' textAnchor='middle' fill='#94A3B8' fontSize='14' fontFamily='Microsoft YaHei'>彼此不连</text>
+        </svg>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 690, top: 190, width: 530 }}>
+        <Box style={{ paddingBottom: 20, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>输入：给什么，不给什么</Text>
+            <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>包括它看不到哪些文件、看不到谁的产出。不给的边界，也要写出来。</Text>
+        </Box>
+        <Box style={{ paddingTop: 20, paddingBottom: 20, borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>判据：什么算合格，由谁判</Text>
+            <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>判据要能落到"可复核"——拿得出位置、拿得出原句，而不是"写得不错"。</Text>
+        </Box>
+        <Box style={{ paddingTop: 20 }}>
+            <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>失败信号：做不到时说什么</Text>
+            <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>"找不到"必须是合法答案。否则它不会报错，它会编一个给你。</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 598, width: 1160, background: '#F1F5F9', borderLeft: '3px solid #EA580C', borderRadius: 6, padding: '14px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>
+            契约没写清就派活，等于让每个子代理自己发明合格标准——收回来的会是三份无法合并的东西。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 05</Text>
+</Slide>

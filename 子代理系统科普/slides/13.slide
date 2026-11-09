@@ -1,0 +1,44 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>03 · 为什么"通过"会说谎</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>4 条全过，0 条回答问题</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ flexDirection: 'row', marginTop: 34, height: 320 }}>
+        <Box style={{ width: 500, background: '#F1F5F9', borderRadius: 10, padding: '26px 28px', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>机器的视角</Text>
+            <Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                    <Text style={{ fontSize: 96, fontWeight: 'bold', color: '#94A3B8', lineHeight: 1 }}>4/4</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#64748B', marginLeft: 8, lineHeight: 1.2 }}>通过</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#475569', marginTop: 16, lineHeight: 1.6 }}>
+                    四条引文都逐字存在，页码也都对。工具能看到的就这些。
+                </Text>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 1, height: 320, background: '#E2E8F0', marginLeft: 44, marginRight: 44 }} />
+
+        <Box style={{ width: 500, borderLeft: '3px solid #F59E0B', paddingLeft: 26, justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 13, color: '#B45309', letterSpacing: 2 }}>人的视角</Text>
+            <Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                    <Text style={{ fontSize: 96, fontWeight: 'bold', color: '#F59E0B', lineHeight: 1 }}>0</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#B45309', marginLeft: 8, lineHeight: 1.2 }}>条回答</Text>
+                </Box>
+                <Text style={{ fontSize: 17, color: '#334155', marginTop: 16, lineHeight: 1.6 }}>
+                    问的是"数据集多大""准确率多少"，它答"该文没有给出"，然后引了四条不相干的句子。四条都是真的，一条都没用。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 566, width: 1160, height: 1, background: '#E2E8F0' }} />
+    <Text style={{ position: 'absolute', left: 60, top: 586, width: 1160, fontSize: 19, fontWeight: 'bold', color: '#0F172A' }}>
+        通过率 100%，有用率 0%。这两件事可以同时成立——这就是只看通过率会出事的原因。
+    </Text>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 13</Text>
+</Slide>

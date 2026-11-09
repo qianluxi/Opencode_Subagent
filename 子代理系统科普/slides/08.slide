@@ -1,0 +1,68 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>02 · 一个真实案例</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>三篇论文，三个 agent，一条消息</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <svg width={1160} height={320} viewBox='0 0 1160 320' style={{ marginTop: 28 }}>
+        <rect x='0' y='20' width='160' height='80' rx='8' fill='#F1F5F9' />
+        <text x='80' y='52' textAnchor='middle' fill='#1E293B' fontSize='15' fontWeight='bold' fontFamily='Microsoft YaHei'>Napps 2021</text>
+        <text x='80' y='76' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>8 页</text>
+
+        <rect x='0' y='120' width='160' height='80' rx='8' fill='#F1F5F9' />
+        <text x='80' y='152' textAnchor='middle' fill='#1E293B' fontSize='15' fontWeight='bold' fontFamily='Microsoft YaHei'>Ayzenshtadt 2016</text>
+        <text x='80' y='176' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>8 页</text>
+
+        <rect x='0' y='220' width='160' height='80' rx='8' fill='#F1F5F9' />
+        <text x='80' y='252' textAnchor='middle' fill='#1E293B' fontSize='15' fontWeight='bold' fontFamily='Microsoft YaHei'>Maher 1997</text>
+        <text x='80' y='276' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>8 页</text>
+
+        <path d='M162 60 L 200 60' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M162 160 L 200 160' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M162 260 L 200 260' stroke='#CBD5E1' strokeWidth='2' />
+
+        <rect x='202' y='20' width='210' height='80' rx='8' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='307' y='52' textAnchor='middle' fill='#1E293B' fontSize='16' fontWeight='bold' fontFamily='Microsoft YaHei'>抽取 A</text>
+        <text x='307' y='76' textAnchor='middle' fill='#475569' fontSize='13' fontFamily='Microsoft YaHei'>只读第 1 篇</text>
+
+        <rect x='202' y='120' width='210' height='80' rx='8' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='307' y='152' textAnchor='middle' fill='#1E293B' fontSize='16' fontWeight='bold' fontFamily='Microsoft YaHei'>抽取 B</text>
+        <text x='307' y='176' textAnchor='middle' fill='#475569' fontSize='13' fontFamily='Microsoft YaHei'>只读第 2 篇</text>
+
+        <rect x='202' y='220' width='210' height='80' rx='8' fill='#EFF6FF' stroke='#2563EB' strokeWidth='1.5' />
+        <text x='307' y='252' textAnchor='middle' fill='#1E293B' fontSize='16' fontWeight='bold' fontFamily='Microsoft YaHei'>抽取 C</text>
+        <text x='307' y='276' textAnchor='middle' fill='#475569' fontSize='13' fontFamily='Microsoft YaHei'>只读第 3 篇</text>
+
+        <path d='M414 60 L 452 60' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M414 160 L 452 160' stroke='#CBD5E1' strokeWidth='2' />
+        <path d='M414 260 L 452 260' stroke='#CBD5E1' strokeWidth='2' />
+
+        <rect x='454' y='20' width='176' height='80' rx='8' fill='#FFFFFF' stroke='#CBD5E1' strokeWidth='1.5' />
+        <text x='542' y='52' textAnchor='middle' fill='#1E293B' fontSize='15' fontFamily='Microsoft YaHei'>笔记 A · 3 条</text>
+        <text x='542' y='76' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>原句 + 页码</text>
+
+        <rect x='454' y='120' width='176' height='80' rx='8' fill='#FFFFFF' stroke='#CBD5E1' strokeWidth='1.5' />
+        <text x='542' y='152' textAnchor='middle' fill='#1E293B' fontSize='15' fontFamily='Microsoft YaHei'>笔记 B · 3 条</text>
+        <text x='542' y='176' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>原句 + 页码</text>
+
+        <rect x='454' y='220' width='176' height='80' rx='8' fill='#FFFFFF' stroke='#CBD5E1' strokeWidth='1.5' />
+        <text x='542' y='252' textAnchor='middle' fill='#1E293B' fontSize='15' fontFamily='Microsoft YaHei'>笔记 C · 3 条</text>
+        <text x='542' y='276' textAnchor='middle' fill='#64748B' fontSize='13' fontFamily='Microsoft YaHei'>原句 + 页码</text>
+
+        <path d='M632 60 C 730 60 760 160 846 160' fill='none' stroke='#93C5FD' strokeWidth='2' />
+        <path d='M632 160 L 846 160' fill='none' stroke='#93C5FD' strokeWidth='2' />
+        <path d='M632 260 C 730 260 760 160 846 160' fill='none' stroke='#93C5FD' strokeWidth='2' />
+
+        <rect x='848' y='118' width='250' height='84' rx='10' fill='#1E3A8A' />
+        <text x='973' y='152' textAnchor='middle' fill='#FFFFFF' fontSize='17' fontWeight='bold' fontFamily='Microsoft YaHei'>核验工具逐条回查</text>
+        <text x='973' y='180' textAnchor='middle' fill='rgba(255,255,255,0.8)' fontSize='13' fontFamily='Microsoft YaHei'>在不在原文 · 在第几页</text>
+    </svg>
+
+    <Box style={{ marginTop: 18, background: '#F1F5F9', borderRadius: 6, padding: '14px 22px', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Text style={{ fontSize: 17, color: '#0F172A' }}>产出：3 份笔记 · 1 份核验报告 · 1 份待改清单</Text>
+        <Text style={{ fontSize: 15, color: '#64748B' }}>三个抽取互不通信，只共用一份契约</Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 08</Text>
+</Slide>

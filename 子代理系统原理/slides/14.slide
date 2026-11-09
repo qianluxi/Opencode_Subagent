@@ -1,0 +1,47 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 03 它会怎么失败</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>让它分诊，不让它放行</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 190, width: 420, height: 138, background: '#334155', borderRadius: '8px 0 0 8px', padding: '24px 22px' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>自动放行</Text>
+        <Text style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', marginTop: 12, lineHeight: 1.7 }}>判据能机械核验的那部分</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 480, top: 190, width: 460, height: 138, background: '#FFF7ED', border: '1px solid #EA580C', padding: '23px 21px' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#1E293B' }}>必须人看</Text>
+        <Text style={{ fontSize: 15, color: '#B45309', marginTop: 12, lineHeight: 1.7 }}>判据管不到的语义、边界与例外</Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 940, top: 190, width: 280, height: 138, background: '#F1F5F9', borderRadius: '0 8px 8px 0', padding: '24px 22px' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#475569' }}>直接拒收</Text>
+        <Text style={{ fontSize: 15, color: '#64748B', marginTop: 12, lineHeight: 1.7 }}>硬条件就不满足</Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 352, width: 400 }}>
+        <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.8 }}>
+            存在性、格式、字段、计数、出处位置——这类判据机器判得比人稳，也不必占人的时间。
+        </Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 480, top: 352, width: 440 }}>
+        <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.8 }}>
+            意思对不对、范围有没有被放大、结论是否超出证据——机器只能提示，不能裁定，因为它给不出"为什么"。
+        </Text>
+    </Box>
+    <Box style={{ position: 'absolute', left: 940, top: 352, width: 280 }}>
+        <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.8 }}>
+            缺页、缺字段、没有出处——直接退回，不进人工队列。
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 508, width: 1160, background: '#F1F5F9', borderLeft: '3px solid #EA580C', borderRadius: 6, padding: '18px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B', lineHeight: 1.5 }}>
+            分档的依据不是"难不难"，而是"能不能拿出可复核的证据"。
+        </Text>
+        <Text style={{ fontSize: 17, color: '#475569', lineHeight: 1.7, marginTop: 10 }}>
+            自动化的边界，就是判据的边界——判据写不到的地方，机器说"过"也不算数。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 14</Text>
+</Slide>

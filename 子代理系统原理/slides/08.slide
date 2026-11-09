@@ -1,0 +1,64 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 02 多，不等于强</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>三个回声，不等于三次确认</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 194, width: 452 }}>
+        <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#64748B' }}>同质堆叠</Text>
+        <Text style={{ fontSize: 16, color: '#94A3B8', marginTop: 8, lineHeight: 1.6 }}>三个助手，同一份材料，同一套判断方式</Text>
+        <Box style={{ marginTop: 26, flexDirection: 'column' }}>
+            <Box style={{ flexDirection: 'row', paddingBottom: 18, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>01</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E293B' }}>同一份材料 → 同一个盲区</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>材料里没写的东西，三个人都看不见。</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', paddingTop: 18, paddingBottom: 18, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>02</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E293B' }}>同一套判断 → 同一种偏差</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>偏差不是随机的，它会稳定地重复三次。</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', paddingTop: 18 }}>
+                <Text style={{ width: 44, fontFamily: 'Consolas', fontSize: 15, color: '#94A3B8', paddingTop: 3 }}>03</Text>
+                <Box style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E293B' }}>一致的意见 → 不是第二份证据</Text>
+                    <Text style={{ fontSize: 16, color: '#475569', lineHeight: 1.7, marginTop: 6 }}>它只证明这条结论能自洽，没证明它对。</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 552, top: 194, width: 1, height: 388, background: '#E2E8F0' }} />
+
+    <Box style={{ position: 'absolute', left: 604, top: 194, width: 616 }}>
+        <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#334155' }}>异质分工</Text>
+        <Text style={{ fontSize: 16, color: '#64748B', marginTop: 8, lineHeight: 1.6 }}>三个身份，各拿一份不同的信息</Text>
+        <Box style={{ marginTop: 24 }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 20, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 84, fontSize: 17, fontWeight: 'bold', color: '#334155' }}>生产</Text>
+                <Text style={{ flex: 1, fontSize: 16, color: '#475569', lineHeight: 1.7 }}>只对自己那一块负责。看得到材料，看不到判据的实现。</Text>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingTop: 20, paddingBottom: 20, borderBottom: '1px solid #E2E8F0' }}>
+                <Text style={{ width: 84, fontSize: 17, fontWeight: 'bold', color: '#334155' }}>裁判</Text>
+                <Text style={{ flex: 1, fontSize: 16, color: '#475569', lineHeight: 1.7 }}>只按判据核。看得到产出，看不到是谁写的、写得多辛苦。</Text>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingTop: 20 }}>
+                <Text style={{ width: 84, fontSize: 17, fontWeight: 'bold', color: '#EA580C' }}>审计</Text>
+                <Text style={{ flex: 1, fontSize: 16, color: '#475569', lineHeight: 1.7 }}>只问"这套判据够不够"。不参与生产，也不替裁判下结论。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 600, width: 1160, background: '#F1F5F9', borderLeft: '3px solid #EA580C', borderRadius: 6, padding: '14px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>
+            只有当三者的材料、视角或时点不同，一致才有信息量；否则加人只是把同一句话说了三遍。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 08</Text>
+</Slide>

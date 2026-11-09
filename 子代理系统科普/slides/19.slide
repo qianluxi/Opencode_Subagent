@@ -1,0 +1,17 @@
+<Slide style={{ width: 1280, height: 720, background: '#0F172A', fontFamily: 'Microsoft YaHei', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 96, top: 214, width: 1160 }}>
+        <Box style={{ width: 64, height: 4, background: '#F59E0B', borderRadius: 2 }} />
+        <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.45, marginTop: 30 }}>
+            它的价值不是更快，<br />是有人能查出哪一句是假的。
+        </Text>
+        <Text style={{ fontSize: 20, color: 'rgba(255,255,255,0.72)', marginTop: 34, lineHeight: 1.7 }}>
+            下次要让 AI 干一件"会被人核对"的活，先想想那四步：定契约、切任务、独立核验、回灌清单。
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 96, top: 604, width: 1088, height: 1, background: 'rgba(255,255,255,0.16)' }} />
+    <Box style={{ position: 'absolute', left: 96, top: 622, right: 140, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)' }}>子代理系统科普</Text>
+        <Text style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)' }}>2026 年 11 月</Text>
+    </Box>
+</Slide>

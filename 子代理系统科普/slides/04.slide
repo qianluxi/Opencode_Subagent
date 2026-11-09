@@ -1,0 +1,40 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ flexDirection: 'row', height: 600, gap: 40 }}>
+        <Box style={{ width: 352, height: 600, background: '#2563EB', borderRadius: 12, padding: '34px 30px', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', letterSpacing: 2 }}>01 · 它是什么</Text>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.36 }}>
+                22 篇论文，<br />卡在同一句话上
+            </Text>
+            <Text style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
+                每条引文，<br />都要能回到原文的那一页
+            </Text>
+        </Box>
+
+        <Box style={{ flex: 1, height: 600, justifyContent: 'space-between' }}>
+            <Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0F172A' }}>要写的是文献综述</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 8 }}>
+                    22 篇论文要逐句引用，每条后面都得标清"作者、年份、第几页"。
+                </Text>
+            </Box>
+            <Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0F172A' }}>写完看不出真假</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 8 }}>
+                    读起来每条都像原文，可一旦有人按标注去翻，可能那句话根本不在那一页。
+                </Text>
+            </Box>
+            <Box>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0F172A' }}>一个人核不动</Text>
+                <Text style={{ fontSize: 18, color: '#334155', lineHeight: 1.6, marginTop: 8 }}>
+                    22 篇、近 600 页，逐条回查一遍，比写本身还花时间。这就是要找帮手的地方。
+                </Text>
+            </Box>
+            <Box style={{ background: '#F1F5F9', borderLeft: '3px solid #F59E0B', borderRadius: 6, padding: '18px 22px' }}>
+                <Text style={{ fontSize: 19, color: '#0F172A', fontWeight: 'bold', lineHeight: 1.5 }}>
+                    难点从来不是"写得像不像综述"，而是"这句话到底在不在原文第 N 页"。
+                </Text>
+            </Box>
+        </Box>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 04</Text>
+</Slide>

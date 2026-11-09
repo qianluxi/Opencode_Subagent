@@ -1,0 +1,59 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 1160 }}>
+        <Box style={{ width: 14, height: 14, border: '2px solid #334155', borderRadius: 3 }} />
+        <Text style={{ fontSize: 14, letterSpacing: 2, color: '#64748B', marginTop: 14 }}>原理篇 · 01 拆得开，才派得动</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#1E293B', marginTop: 6 }}>切开的单位是交付物，不是步骤</Text>
+        <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 190, width: 356, height: 386, background: '#334155', borderRadius: 10, padding: '30px 28px', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box>
+            <Text style={{ fontFamily: 'Consolas', fontSize: 14, letterSpacing: 2, color: '#CBD5E1' }}>原理 01</Text>
+            <Text style={{ fontSize: 27, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.45, marginTop: 18 }}>
+                一个子代理，<br />一份能被单独退回的产出
+            </Text>
+        </Box>
+        <Text style={{ fontSize: 15, color: 'rgba(255,255,255,0.74)', lineHeight: 1.75 }}>
+            切得对不对，只问一句：它能不能被单独打回，而不牵连别人。
+        </Text>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 456, top: 190, width: 764 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 22, borderBottom: '1px solid #E2E8F0' }}>
+            <Box style={{ width: 34, height: 26, borderRadius: 4, background: '#F1F5F9', justifyContent: 'center', alignItems: 'center', marginTop: 3 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#64748B' }}>错</Text>
+            </Box>
+            <Box style={{ flex: 1, marginLeft: 16 }}>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1E293B' }}>按工作量切：一人一半，看着最公平</Text>
+                <Text style={{ fontSize: 17, color: '#475569', lineHeight: 1.65, marginTop: 8 }}>一半要返工，另一半只能干等——他既不知道那边在改什么，也没法替对方验收。</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingBottom: 22, paddingTop: 22, borderBottom: '1px solid #E2E8F0' }}>
+            <Box style={{ width: 34, height: 26, borderRadius: 4, background: '#F1F5F9', justifyContent: 'center', alignItems: 'center', marginTop: 3 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#64748B' }}>错</Text>
+            </Box>
+            <Box style={{ flex: 1, marginLeft: 16 }}>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1E293B' }}>按步骤切：上一步交给下一步</Text>
+                <Text style={{ fontSize: 17, color: '#475569', lineHeight: 1.65, marginTop: 8 }}>交接处最没人负责。出错时说不清是这一步做坏了，还是上一步本来就没给够。</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', alignItems: 'flex-start', paddingTop: 22 }}>
+            <Box style={{ width: 34, height: 26, borderRadius: 4, background: '#FFF7ED', justifyContent: 'center', alignItems: 'center', marginTop: 3 }}>
+                <Text style={{ fontSize: 14, fontWeight: 'bold', color: '#EA580C' }}>对</Text>
+            </Box>
+            <Box style={{ flex: 1, marginLeft: 16 }}>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1E293B' }}>按产出切：一份产出、一个负责人</Text>
+                <Text style={{ fontSize: 17, color: '#475569', lineHeight: 1.65, marginTop: 8 }}>谁那份不合格就退谁那一份。不动别人的文件，也不打断别人的进度。</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ position: 'absolute', left: 60, top: 598, width: 1160, background: '#F1F5F9', borderLeft: '3px solid #EA580C', borderRadius: 6, padding: '14px 22px' }}>
+        <Text style={{ fontSize: 19, fontWeight: 'bold', color: '#1E293B' }}>
+            切分不是分活儿，是分责任。责任说不清的地方，最后都会堆回主控身上。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>原理篇 · 04</Text>
+</Slide>

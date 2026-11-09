@@ -1,0 +1,48 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', fontFamily: 'Microsoft YaHei', padding: '60px 60px', position: 'relative' }}>
+    <Box style={{ position: 'absolute', left: 60, top: 60, width: 6, height: 46, background: '#2563EB', borderRadius: 3 }} />
+    <Box style={{ marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, color: '#64748B', letterSpacing: 2 }}>02 · 一个真实案例</Text>
+        <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0F172A', marginTop: 6 }}>9 条全过，但"过"是有定义的</Text>
+    </Box>
+    <Box style={{ width: 1160, height: 1, background: '#E2E8F0', marginTop: 16 }} />
+
+    <Box style={{ marginTop: 26, border: '1px solid #E2E8F0', borderRadius: 8, overflow: 'hidden' }}>
+        <Box style={{ flexDirection: 'row', height: 50, background: '#1E3A8A', alignItems: 'center' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', width: 190, paddingLeft: 22 }}>判定码</Text>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', width: 500 }}>工具看到的情况</Text>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#FFFFFF', flex: 1 }}>你该做什么</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', height: 58, alignItems: 'center', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2563EB', width: 190, paddingLeft: 22 }}>PASS</Text>
+            <Text style={{ fontSize: 17, color: '#334155', width: 500 }}>逐字存在、页码正确、作者匹配</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>不用动</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', height: 58, alignItems: 'center', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2563EB', width: 190, paddingLeft: 22 }}>PAGE</Text>
+            <Text style={{ fontSize: 17, color: '#334155', width: 500 }}>这句是原文，但页码写错了</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>按报告给的实际页改</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', height: 58, alignItems: 'center', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2563EB', width: 190, paddingLeft: 22 }}>PARAPHRASE</Text>
+            <Text style={{ fontSize: 17, color: '#334155', width: 500 }}>引号里的话跟原文对不上</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>改回原句，或删引号改转述</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', height: 58, alignItems: 'center', background: '#F8FAFC', borderBottom: '1px solid #E2E8F0' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2563EB', width: 190, paddingLeft: 22 }}>MISSING</Text>
+            <Text style={{ fontSize: 17, color: '#334155', width: 500 }}>全库都找不到这一句</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>删引号，或回原 PDF 确认</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', height: 58, alignItems: 'center' }}>
+            <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2563EB', width: 190, paddingLeft: 22 }}>NOPAGE</Text>
+            <Text style={{ fontSize: 17, color: '#334155', width: 500 }}>引文在，但没标页码</Text>
+            <Text style={{ fontSize: 17, color: '#334155', flex: 1 }}>补上页码</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ marginTop: 22, borderLeft: '3px solid #F59E0B', paddingLeft: 18 }}>
+        <Text style={{ fontSize: 17, color: '#0F172A', lineHeight: 1.6 }}>
+            这一轮 9 条全 PASS。但"过"的意思很窄：只说明这句话确实是原文、页码也对，不说明它有没有说错意思——下一章就栽在这。
+        </Text>
+    </Box>
+    <Text style={{ position: 'absolute', right: 60, top: 672, fontSize: 14, color: '#94A3B8' }}>子代理系统科普 · 11</Text>
+</Slide>
